@@ -1,5 +1,5 @@
 Package: gitspero
-Title: What the Package Does (One Line, Title Case)
+Title:Projet de fin de cours de Github et R avancé (One Line, Title Case)
 Version: 0.0.0.9000
 Authors@R: 
     person("First", "Last", , "first.last@example.com", role = c("aut", "cre"))
