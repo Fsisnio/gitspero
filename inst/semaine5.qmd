@@ -1,0 +1,220 @@
+---
+title: "semaine5"
+format: html
+editor: visual
+---
+
+
+```{r}
+library(testthat)
+library(ggplot2)
+library(dplyr)
+```
+
+
+
+```{r}
+library(testthat)
+library(ggplot2)
+library(dplyr)
+
+
+
+# Source the R script with functions
+source("C:/Users/DELL/Downloads/cours_r_semaine_3/semaine3.R")  # Remplacez par le bon chemin
+
+
+
+#' Calculer la distribution des âges
+#'
+#' @param df Un `data.frame` contenant une colonne `Date.de.naissance` au format Date.
+#' @return Un vecteur de quartiles (`0%, 25%, 50%, 75%, 100%`) des âges.
+#'
+#' @export
+calcul_distribution_age <- function(df) {
+  df$Age <- as.numeric(difftime(Sys.Date(), df$Date.de.naissance, units = "days")) / 365.25
+  quantile(df$Age, probs = c(0, 0.25, 0.5, 0.75, 1), na.rm = TRUE)
+}
+
+#' Compter le nombre d'adjoints
+#'
+#' @param df Un `data.frame` contenant la colonne `Libellé.de.la.fonction`.
+#' @return Un entier représentant le nombre d'adjoints trouvés.
+#'
+#' @export
+compter_nombre_d_adjoints <- function(df) {
+  sum(grepl("adjoint", df$Libellé.de.la.fonction, ignore.case=TRUE), na.rm = TRUE)
+}
+
+#' Compter le nombre total d'élus
+#'
+#' @param df Un `data.frame` des élus.
+#' @return Un entier représentant le nombre d'élus.
+#'
+#' @export
+compter_nombre_d_elus <- function(df) {
+  nrow(df)
+}
+
+#' Trouver l'élu(e) le plus âgé(e)
+#'
+#' @param df Un `data.frame` contenant la colonne `Date.de.naissance`.
+#' @return Un `data.frame` contenant l'élu(e) le plus âgé(e).
+#'
+#' @export
+trouver_l_elu_le_plus_age <- function(df) {
+  df$Age <- as.numeric(format(Sys.Date(), "%Y")) - as.numeric(substr(df$Date.de.naissance, 1, 4))
+  oldest <- df[which.max(df$Age), ]
+  oldest[c("Nom.de.l.élu", "Prénom.de.l.élu")]
+}
+
+#' Résumé des statistiques d'une commune
+#'
+#' @param x Un `data.frame` contenant `Libellé.de.la.commune`, `Date.de.naissance`, etc.
+#' @export
+summary.commune <- function(x) {
+  cat("Commune:", unique(x$Libellé.de.la.commune)[1], "\n")
+  cat("Nombre d'élus:", compter_nombre_d_elus(x), "\n")
+  cat("Distribution des âges:\n")
+  print(calcul_distribution_age(x))
+  cat("Élu(e) le plus âgé(e):\n")
+  print(trouver_l_elu_le_plus_age(x))
+}
+
+#' Résumé des statistiques d'un département
+#'
+#' @param x Un `data.frame` contenant `Code.du.département`, etc.
+#' @export
+summary.departement <- function(x) {
+  cat("Département:", unique(x$Code.du.département)[1], "\n")
+  cat("Nombre de communes:", length(unique(x$Libellé.de.la.commune)), "\n")
+  cat("Nombre d'élus:", compter_nombre_d_elus(x), "\n")
+  cat("Distribution des âges:\n")
+  print(calcul_distribution_age(x))
+}
+
+#' Graphique des professions d'une commune
+#'
+#' @param x Un `data.frame` avec `Libellé.de.la.catégorie.socio.professionnelle`.
+#' @return Un graphique ggplot2.
+#'
+#' @export
+plot.commune <- function(x) {
+  titre <- paste(unique(x$Libellé.de.la.commune)[1], "-", unique(x$Code.du.département)[1])
+  df_prof <- as.data.frame(table(x$Libellé.de.la.catégorie.socio.professionnelle))
+  ggplot(df_prof, aes(x=reorder(Var1, Freq), y=Freq)) +
+    geom_bar(stat="identity") +
+    coord_flip() +
+    labs(x="Catégories socio-professionnelles", y="Nombre d'élus", title=titre)
+}
+
+#' Graphique des professions d'un département
+#'
+#' @param x Un `data.frame` avec `Libellé.de.la.catégorie.socio.professionnelle`.
+#' @return Un graphique ggplot2.
+#'
+#' @export
+plot.departement <- function(x) {
+  titre <- paste(unique(x$Code.du.département)[1], "-", length(unique(x$Libellé.de.la.commune)), "communes")
+  df_prof <- as.data.frame(table(x$Libellé.de.la.catégorie.socio.professionnelle))
+  df_prof <- df_prof[order(-df_prof$Freq),][1:10,] # Top 10 professions
+  ggplot(df_prof, aes(x=reorder(Var1, Freq), y=Freq)) +
+    geom_bar(stat="identity") +
+    coord_flip() +
+    labs(x="Top 10 catégories socio-professionnelles", y="Nombre d'élus", title=titre)
+}
+
+
+
+
+# Test for 'calcul_distribution_age'
+test_that("calcul_distribution_age fonctionne correctement", {
+  df <- data.frame(Date.de.naissance = as.Date(c("1970-01-01", "1980-05-15", "1995-07-20")))
+  result <- calcul_distribution_age(df)
+  expect_length(result, 5)  # Should return 5 quantiles
+  expect_true(all(result >= 0))  # Ensure no negative age
+})
+
+test_that("calcul_distribution_age gère les valeurs manquantes", {
+  df <- data.frame(Date.de.naissance = as.Date(c("1970-01-01", NA, "1995-07-20")))
+  result <- calcul_distribution_age(df)
+  expect_length(result, 5)
+  expect_false(any(is.na(result)))  # Ensure no NA values in the quantiles
+})
+
+# Test for 'compter_nombre_d_elus'
+test_that("compter_nombre_d_elus fonctionne correctement", {
+  df <- data.frame(Nom.de.l.élu = c("Dupont", "Martin", "Leroy"),
+                   Prénom.de.l.élu = c("Jean", "Pierre", "Paul"),
+                   Date.de.naissance = as.Date(c("1970-01-01", "1980-05-15", "1995-07-20")))
+  expect_equal(compter_nombre_d_elus(df), 3)  # 3 unique elected officials
+})
+
+# Test for 'compter_nombre_d_adjoints'
+test_that("compter_nombre_d_adjoints fonctionne correctement", {
+  df <- data.frame(Libellé.de.la.fonction = c("Adjoint", "Maire", "Adjoint", NA))
+  expect_equal(compter_nombre_d_adjoints(df), 2)  # 2 adjoints found
+})
+
+# Test for 'trouver_l_elu_le_plus_age'
+test_that("trouver_l_elu_le_plus_age fonctionne correctement", {
+  df <- data.frame(
+    Nom.de.l.élu = c("A", "B", "C"),
+    Prénom.de.l.élu = c("X", "Y", "Z"),
+    Date.de.naissance = as.Date(c("1950-01-01", "1980-05-15", "1995-07-20"))
+  )
+  result <- trouver_l_elu_le_plus_age(df)
+  expect_equal(result$Nom.de.l.élu, "A")  # The oldest is 'A'
+})
+
+# Test for 'summary.commune'
+test_that("summary.commune fonctionne correctement", {
+  df <- data.frame(
+    Libellé.de.la.commune = rep("Paris", 3),
+    Date.de.naissance = as.Date(c("1970-01-01", "1985-06-10", "2000-12-30")),
+    Nom.de.l.élu = c("Dupont", "Martin", "Leroy"),
+    Prénom.de.l.élu = c("Jean", "Pierre", "Paul")
+  )
+  expect_output(summary.commune(df), "Commune: Paris")  # Ensure the correct commune name is printed
+})
+
+# Test for 'summary.departement'
+test_that("summary.departement fonctionne correctement", {
+  df <- data.frame(
+    Code.du.département = rep("75", 3),
+    Libellé.de.la.commune = c("Paris", "Neuilly", "Versailles"),
+    Date.de.naissance = as.Date(c("1970-01-01", "1985-06-10", "2000-12-30")),
+    Nom.de.l.élu = c("Dupont", "Martin", "Leroy"),
+    Prénom.de.l.élu = c("Jean", "Pierre", "Paul")
+  )
+  expect_output(summary.departement(df), "Département: 75")  # Ensure the correct department is printed
+})
+
+# Test for 'plot.commune'
+test_that("plot.commune fonctionne correctement", {
+  df <- data.frame(
+    Libellé.de.la.commune = rep("Paris", 3),
+    Libellé.de.la.catégorie.socio.professionnelle = c("Prof1", "Prof2", "Prof3"),
+    Nom.de.l.élu = c("Dupont", "Martin", "Leroy"),
+    Prénom.de.l.élu = c("Jean", "Pierre", "Paul")
+  )
+  plot <- plot.commune(df)  # Generate the plot
+  expect_s3_class(plot, "gg")  # Ensure the plot is a ggplot object
+})
+
+# Test for 'plot.departement'
+test_that("plot.departement fonctionne correctement", {
+  df <- data.frame(
+    Code.du.département = rep("75", 3),
+    Libellé.de.la.commune = c("Paris", "Neuilly", "Versailles"),
+    Libellé.de.la.catégorie.socio.professionnelle = c("Prof1", "Prof2", "Prof3"),
+    Nom.de.l.élu = c("Dupont", "Martin", "Leroy"),
+    Prénom.de.l.élu = c("Jean", "Pierre", "Paul")
+  )
+  plot <- plot.departement(df)  # Generate the plot
+  expect_s3_class(plot, "gg")  # Ensure the plot is a ggplot object
+})
+
+
+```
+
