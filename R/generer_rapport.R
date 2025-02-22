@@ -14,9 +14,11 @@ generer_rapport <- function(commune, departement, output) {
     stop("Le fichier modèle rapport.qmd est introuvable.")
   }
 
+  data_commune <- read.csv("C:/Users/DELL/Downloads/cours_r_semaine_3/data/elus-conseillers-municipaux-cm.csv")
+
   # Modifier le fichier avec les paramètres donnés
   params <- list(
-    commune = Libellé.de.la.commune,
+    commune = Libellé.de.la.commune ,
     departement = Libellé.du.département
   )
 

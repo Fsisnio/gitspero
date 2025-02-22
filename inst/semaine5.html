@@ -1,0 +1,816 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.4.555">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>semaine5</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="semaine5_files/libs/clipboard/clipboard.min.js"></script>
+<script src="semaine5_files/libs/quarto-html/quarto.js"></script>
+<script src="semaine5_files/libs/quarto-html/popper.min.js"></script>
+<script src="semaine5_files/libs/quarto-html/tippy.umd.min.js"></script>
+<script src="semaine5_files/libs/quarto-html/anchor.min.js"></script>
+<link href="semaine5_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="semaine5_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="semaine5_files/libs/bootstrap/bootstrap.min.js"></script>
+<link href="semaine5_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="semaine5_files/libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+
+
+</head>
+
+<body class="fullcontent">
+
+<div id="quarto-content" class="page-columns page-rows-contents page-layout-article">
+
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">semaine5</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(testthat)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: le package 'testthat' a été compilé avec la version R 4.4.2</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: le package 'ggplot2' a été compilé avec la version R 4.4.2</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: le package 'dplyr' a été compilé avec la version R 4.4.2</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>
+Attachement du package : 'dplyr'</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>L'objet suivant est masqué depuis 'package:testthat':
+
+    matches</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Les objets suivants sont masqués depuis 'package:stats':
+
+    filter, lag</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Les objets suivants sont masqués depuis 'package:base':
+
+    intersect, setdiff, setequal, union</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(testthat)</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Source the R script with functions</span></span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a><span class="fu">source</span>(<span class="st">"C:/Users/DELL/Downloads/cours_r_semaine_3/semaine3.R"</span>)  <span class="co"># Remplacez par le bon chemin</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: le package 'ggplot2' est en cours d'utilisation et ne sera pas
+installé</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: le package 'dplyr' est en cours d'utilisation et ne sera pas installé</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Commune: Abbaretz Aigrefeuille-Sur-Maine Ancenis-Saint-Géréon Chaumes-En-Retz Assérac Avessac Basse-Goulaine Batz-Sur-Mer La Bernerie-En-Retz Besné Le Bignon Blain La Boissière-Du-Doré Bouaye Bouée Bouguenais Villeneuve-En-Retz Boussay Bouvron Brains Campbon Carquefou Casson Le Cellier Divatte-Sur-Loire La Chapelle-Des-Marais La Chapelle-Glain La Chapelle-Heulin La Chapelle-Launay La Chapelle-Sur-Erdre Châteaubriant Château-Thébaud Chauvé Cheix-En-Retz La Chevrolière Clisson Conquereuil Cordemais Corsept Couëron Couffé Le Croisic Crossac Derval Donges Drefféac Erbray La Baule-Escoublac Fay-De-Bretagne Fégréac Fercé Frossay Le Gâvre Gétigné Gorges Grand-Auverné Grandchamps-Des-Fontaines Guémené-Penfao Guenrouet Guérande La Haie-Fouassière Haute-Goulaine Herbignac Héric Indre Issé Jans Joué-Sur-Erdre Juigné-Des-Moutiers Le Landreau Lavau-Sur-Loire Legé Ligné La Limouzinière Le Loroux-Bottereau Louisfert Lusanger Machecoul-Saint-Même Maisdon-Sur-Sèvre Malville La Marne Marsac-Sur-Don Massérac Mauves-Sur-Loire La Meilleraye-De-Bretagne Mésanger Mesquer Missillac Moisdon-La-Rivière Monnières La Montagne Montbert Montoir-De-Bretagne Montrelais Mouais Les Moutiers-En-Retz Mouzeil Mouzillon Nantes Nort-Sur-Erdre Notre-Dame-Des-Landes Noyal-Sur-Brutz Nozay Orvault Oudon Paimboeuf Le Pallet Pannecé Paulx Le Pellerin Petit-Auverné Petit-Mars Pierric Le Pin Piriac-Sur-Mer La Plaine-Sur-Mer La Planche Plessé Pontchâteau Pont-Saint-Martin Pornic Pornichet Port-Saint-Père Pouillé-Les-Côteaux Le Pouliguen Préfailles Prinquiau Puceul Quilly La Regrippière La Remaudière Remouillé Rezé Riaillé Rouans Rougé Ruffigné Saffré Saint-Aignan-Grandlieu Saint-André-Des-Eaux Sainte-Anne-Sur-Brivet Saint-Aubin-Des-Châteaux Saint-Brevin-Les-Pins Saint-Colomban Corcoué-Sur-Logne Saint-Etienne-De-Mer-Morte Saint-Etienne-De-Montluc Saint-Fiacre-Sur-Maine Saint-Gildas-Des-Bois Saint-Herblain Vair-Sur-Loire Saint-Hilaire-De-Chaléons Saint-Hilaire-De-Clisson Saint-Jean-De-Boiseau Saint-Joachim Saint-Julien-De-Concelles Saint-Julien-De-Vouvantes Saint-Léger-Les-Vignes Sainte-Luce-Sur-Loire Saint-Lumine-De-Clisson Saint-Lumine-De-Coutais Saint-Lyphard Saint-Malo-De-Guersac Saint-Mars-De-Coutais Saint-Mars-Du-Désert Vallons-De-L'Erdre Saint-Michel-Chef-Chef Saint-Molf Saint-Nazaire Saint-Nicolas-De-Redon Sainte-Pazanne Saint-Père-En-Retz Saint-Philbert-De-Grand-Lieu Sainte-Reine-De-Bretagne Saint-Sébastien-Sur-Loire Saint-Viaud Saint-Vincent-Des-Landes Sautron Savenay Sévérac Sion-Les-Mines Les Sorinières Soudan Soulvache Sucé-Sur-Erdre Teillé Le Temple-De-Bretagne Thouaré-Sur-Loire Les Touches Touvois Trans-Sur-Erdre Treffieux Treillières Trignac La Turballe Vallet Loireauxence Vay Vertou Vieillevigne Vigneux-De-Bretagne Villepot Vue La Chevallerais La Roche-Blanche Geneston La Grigonnais 
+Nombre d'élus: 4781 
+Distribution des âges:
+  0%  25%  50%  75% 100% 
+  23   47   54   64   85 
+Élu(e) le plus âgé:</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in trouver_l_elu_le_plus_age(x): NAs introduits lors de la conversion
+automatique</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] Nom.de.l.élu    Prénom.de.l.élu
+&lt;0 lignes&gt; (ou 'row.names' de longueur nulle)
+Commune: Aignan Ansan Antras Arblade-Le-Haut Ardizas Armentieux Armous-Et-Cau Arrouède Aubiet Auch Augnax Aujan-Mournède Auradé Aurimont Auterive Aux-Aussat Avensac Avéron-Bergelle Avezan Ayguetinte Ayzieu Bajonnette Barcugnan Barran Bars Bascous Bassoues Bazian Bazugues Beaucaire Beaumarchés Beaumont Beaupuy Beccas Bédéchan Bellegarde-Adoulins Belloc-Saint-Clamens Belmont Béraut Berdoues Berrac Betcave-Aguin Bétous Betplan Bézéril Bezolles Bézues-Bajon Biran Bivès Blanquefort Blaziert Blousson-Sérian Bonas Boucagnères Boulaur Bourrouillan Bouzon-Gellenave Bretagne-D'Armagnac Le Brouilh-Monbert Brugnens Cabas-Loumassès Cadeilhan Cadeillan Cahuzac-Sur-Adour Caillavet Callian Campagne-D'Armagnac Cassaigne Castelnau-Barbarens Castelnau-D'Anglès Castelnau-D'Arbieu Castelnau-D'Auzan Labarrère Castelnau-Sur-L'Auvignon Castelnavet Castéra-Lectourois Castéra-Verduzan Castéron Castet-Arrouy Castex Castex-D'Armagnac Castillon-Debats Castillon-Massas Castillon-Savès Castin Catonvielle Caumont Caupenne-D'Armagnac Caussens Cazaubon Cazaux-D'Anglès Cazaux-Savès Cazaux-Villecomtal Cazeneuve Céran Cézan Chélan Clermont-Pouyguillès Clermont-Savès Cologne Condom Couloumé-Mondebat Courrensan Courties Crastes Cravencères Cuélas Dému Duffort Duran Durban Eauze Encausse Endoufielle Esclassan-Labastide Escorneboeuf Espaon Espas Estampes-Castelfranc Estang Estipouy Estramiac Faget-Abbatial Flamarens Fleurance Fourcès Frégouville Fustérouau Galiax Garravet Gaudonville Gaujac Gaujan Gavarret-Sur-Aulouste Gazaupouy Gazax-Et-Baccarisse Gimbrède Gimont Giscaro Gondrin Goutz Goux Haget Haulies Homps Le Houga Idrac-Respaillès L'Isle-Arné L'Isle-Bouzon L'Isle-De-Noé L'Isle-Jourdain Izotges Jegun Jû-Belloc Juillac Juilles Justian Laas Labarthe Labarthète Labastide-Savès Labéjan Labrihe Ladevèze-Rivière Ladevèze-Ville Lagarde Lagarde-Hachan Lagardère Lagraulet-Du-Gers Laguian-Mazous Lahas Lahitte Lalanne Lalanne-Arqué Lamaguère Lamazère Lamothe-Goas Lannemaignan Lannepax Lanne-Soubiran Larée Larressingle Larroque-Engalin Larroque-Saint-Sernin Larroque-Sur-L'Osse Lartigue Lasserade Lasséran Lasseube-Propre Laujuzan Lauraët Lavardens Laveraët Laymont Leboulin Lectoure Lelin-Lapujolle Lias Lias-D'Armagnac Ligardes Lombez Loubédat Loubersan Lourties-Monbrun Louslitges Loussous-Débat Lupiac Luppé-Violles Lussan Magnan Magnas Maignaut-Tauzia Malabat Manas-Bastanous Manciet Manent-Montané Mansempuy Mansencôme Marambat Maravat Marciac Marestaing Margouët-Meymes Marguestau Marsan Marseillan Marsolan Mascaras Mas-D'Auvignon Masseube Mauléon-D'Armagnac Maulichères Maumusson-Laguian Maupas Maurens Mauroux Mauvezin Meilhan Mérens Miélan Miradoux Miramont-D'Astarac Miramont-Latour Mirande Mirannes Mirepoix Monbardon Monblanc Monbrun Moncassin Monclar-D'Armagnac Monclar-Sur-Losse Moncorneil-Grazan Monferran-Plavès Monferran-Savès Monfort Mongausy Monguilhem Monlaur-Bernet Monlezun Monlezun-D'Armagnac Monpardiac Montadet Montamat Montaut Montaut-Les-Créneaux Mont-D'Astarac Mont-De-Marrast Montégut Montégut-Arros Montégut-Savès Montesquiou Montestruc-Sur-Gers Monties Montiron Montpézat Montréal Mormès Mouchan Mouchès Mourède Nizas Nogaro Noilhan Nougaroulet Noulens Orbessan Ordan-Larroque Ornézan Pallanne Panassac Panjas Pauilhac Pavie Pébées Pellefigue Perchède Pergain-Taillac Pessan Pessoulens Peyrecave Peyrusse-Grande Peyrusse-Massas Peyrusse-Vieille Pis Plaisance Plieux Polastron Pompiac Ponsampère Ponsan-Soubiran Pouydraguin Pouylebon Pouy-Loubrin Pouy-Roquelaure Préchac Préchac-Sur-Adour Preignan Préneron Pujaudran Puycasquier Puylausic Puységur Ramouzens Razengues Réans Réjaumont Ricourt Riguepeu Riscle La Romieu Roquebrune Roquefort Roquelaure Roquelaure-Saint-Aubin Roquepine Roques Rozès Sabaillan Sabazan Sadeillan Saint-André Sainte-Anne Saint-Antonin Saint-Arailles Saint-Arroman Saint-Aunix-Lengros Sainte-Aurence-Cazaux Saint-Avit-Frandat Saint-Blancard Saint-Brès Saint-Christaud Sainte-Christie Sainte-Christie-D'Armagnac Saint-Clar Saint-Créac Saint-Cricq Sainte-Dode Saint-Elix-D'Astarac Saint-Elix-Theux Sainte-Gemme Saint-Georges Saint-Germé Saint-Germier Saint-Griède Saint-Jean-Le-Comtal Saint-Jean-Poutge Saint-Justin Saint-Lary Saint-Léonard Saint-Lizier-Du-Planté Saint-Loube-Amades Sainte-Marie Saint-Martin Saint-Martin-D'Armagnac Saint-Martin-De-Goyne Saint-Martin-Gimois Saint-Maur Saint-Médard Sainte-Mère Saint-Mézard Saint-Michel Saint-Mont Saint-Orens Saint-Orens-Pouy-Petit Saint-Ost Saint-Paul-De-Baïse Saint-Pierre-D'Aubézies Saint-Puy Sainte-Radegonde Saint-Sauvy Saint-Soulan Salles-D'Armagnac Samaran Samatan Sansan Saramon Sarcos Sarragachies Sarraguzan Sarrant La Sauvetat Sauveterre Sauviac Sauvimont Savignac-Mona Scieurac-Et-Flourès Séailles Ségoufielle Seissan Sembouès Sémézies-Cachan Sempesserre Sère Sérempuy Seysses-Savès Simorre Sion Sirac Solomiac Sorbets Tachoires Tarsac Tasque Taybosc Terraube Termes-D'Armagnac Thoux Tieste-Uragnoux Tillac Tirent-Pontéjac Touget Toujouse Tourdun Tournan Tournecoupe Tourrenquets Traversères Troncens Tudelle Urdens Urgosse Valence-Sur-Baïse Verlus Vic-Fezensac Viella Villecomtal-Sur-Arros Villefranche-D'Astarac Viozan Saint-Caprais Aussos Fontenilles 
+Nombre d'élus: 4958 
+Distribution des âges:
+  0%  25%  50%  75% 100% 
+  23   49   58   67   93 
+Élu(e) le plus âgé:</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in trouver_l_elu_le_plus_age(x): NAs introduits lors de la conversion
+automatique</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] Nom.de.l.élu    Prénom.de.l.élu
+&lt;0 lignes&gt; (ou 'row.names' de longueur nulle)
+Département: 44 
+Nombre de communes: 207 
+Nombre d'élus: 4781 
+Distribution des âges:
+  0%  25%  50%  75% 100% 
+  23   47   54   64   85 
+Département: 32 
+Nombre de communes: 451 
+Nombre d'élus: 4958 
+Distribution des âges:
+  0%  25%  50%  75% 100% 
+  23   49   58   67   93 </code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="co">#' Calculer la distribution des âges</span></span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a><span class="co">#'</span></span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a><span class="co">#' @param df Un `data.frame` contenant une colonne `Date.de.naissance` au format Date.</span></span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a><span class="co">#' @return Un vecteur de quartiles (`0%, 25%, 50%, 75%, 100%`) des âges.</span></span>
+<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a><span class="co">#'</span></span>
+<span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a><span class="co">#' @export</span></span>
+<span id="cb19-7"><a href="#cb19-7" aria-hidden="true" tabindex="-1"></a>calcul_distribution_age <span class="ot">&lt;-</span> <span class="cf">function</span>(df) {</span>
+<span id="cb19-8"><a href="#cb19-8" aria-hidden="true" tabindex="-1"></a>  df<span class="sc">$</span>Age <span class="ot">&lt;-</span> <span class="fu">as.numeric</span>(<span class="fu">difftime</span>(<span class="fu">Sys.Date</span>(), df<span class="sc">$</span>Date.de.naissance, <span class="at">units =</span> <span class="st">"days"</span>)) <span class="sc">/</span> <span class="fl">365.25</span></span>
+<span id="cb19-9"><a href="#cb19-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">quantile</span>(df<span class="sc">$</span>Age, <span class="at">probs =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="fl">0.25</span>, <span class="fl">0.5</span>, <span class="fl">0.75</span>, <span class="dv">1</span>), <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb19-10"><a href="#cb19-10" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb19-11"><a href="#cb19-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-12"><a href="#cb19-12" aria-hidden="true" tabindex="-1"></a><span class="co">#' Compter le nombre d'adjoints</span></span>
+<span id="cb19-13"><a href="#cb19-13" aria-hidden="true" tabindex="-1"></a><span class="co">#'</span></span>
+<span id="cb19-14"><a href="#cb19-14" aria-hidden="true" tabindex="-1"></a><span class="co">#' @param df Un `data.frame` contenant la colonne `Libellé.de.la.fonction`.</span></span>
+<span id="cb19-15"><a href="#cb19-15" aria-hidden="true" tabindex="-1"></a><span class="co">#' @return Un entier représentant le nombre d'adjoints trouvés.</span></span>
+<span id="cb19-16"><a href="#cb19-16" aria-hidden="true" tabindex="-1"></a><span class="co">#'</span></span>
+<span id="cb19-17"><a href="#cb19-17" aria-hidden="true" tabindex="-1"></a><span class="co">#' @export</span></span>
+<span id="cb19-18"><a href="#cb19-18" aria-hidden="true" tabindex="-1"></a>compter_nombre_d_adjoints <span class="ot">&lt;-</span> <span class="cf">function</span>(df) {</span>
+<span id="cb19-19"><a href="#cb19-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">sum</span>(<span class="fu">grepl</span>(<span class="st">"adjoint"</span>, df<span class="sc">$</span>Libellé.de.la.fonction, <span class="at">ignore.case=</span><span class="cn">TRUE</span>), <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb19-20"><a href="#cb19-20" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb19-21"><a href="#cb19-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-22"><a href="#cb19-22" aria-hidden="true" tabindex="-1"></a><span class="co">#' Compter le nombre total d'élus</span></span>
+<span id="cb19-23"><a href="#cb19-23" aria-hidden="true" tabindex="-1"></a><span class="co">#'</span></span>
+<span id="cb19-24"><a href="#cb19-24" aria-hidden="true" tabindex="-1"></a><span class="co">#' @param df Un `data.frame` des élus.</span></span>
+<span id="cb19-25"><a href="#cb19-25" aria-hidden="true" tabindex="-1"></a><span class="co">#' @return Un entier représentant le nombre d'élus.</span></span>
+<span id="cb19-26"><a href="#cb19-26" aria-hidden="true" tabindex="-1"></a><span class="co">#'</span></span>
+<span id="cb19-27"><a href="#cb19-27" aria-hidden="true" tabindex="-1"></a><span class="co">#' @export</span></span>
+<span id="cb19-28"><a href="#cb19-28" aria-hidden="true" tabindex="-1"></a>compter_nombre_d_elus <span class="ot">&lt;-</span> <span class="cf">function</span>(df) {</span>
+<span id="cb19-29"><a href="#cb19-29" aria-hidden="true" tabindex="-1"></a>  <span class="fu">nrow</span>(df)</span>
+<span id="cb19-30"><a href="#cb19-30" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb19-31"><a href="#cb19-31" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-32"><a href="#cb19-32" aria-hidden="true" tabindex="-1"></a><span class="co">#' Trouver l'élu(e) le plus âgé(e)</span></span>
+<span id="cb19-33"><a href="#cb19-33" aria-hidden="true" tabindex="-1"></a><span class="co">#'</span></span>
+<span id="cb19-34"><a href="#cb19-34" aria-hidden="true" tabindex="-1"></a><span class="co">#' @param df Un `data.frame` contenant la colonne `Date.de.naissance`.</span></span>
+<span id="cb19-35"><a href="#cb19-35" aria-hidden="true" tabindex="-1"></a><span class="co">#' @return Un `data.frame` contenant l'élu(e) le plus âgé(e).</span></span>
+<span id="cb19-36"><a href="#cb19-36" aria-hidden="true" tabindex="-1"></a><span class="co">#'</span></span>
+<span id="cb19-37"><a href="#cb19-37" aria-hidden="true" tabindex="-1"></a><span class="co">#' @export</span></span>
+<span id="cb19-38"><a href="#cb19-38" aria-hidden="true" tabindex="-1"></a>trouver_l_elu_le_plus_age <span class="ot">&lt;-</span> <span class="cf">function</span>(df) {</span>
+<span id="cb19-39"><a href="#cb19-39" aria-hidden="true" tabindex="-1"></a>  df<span class="sc">$</span>Age <span class="ot">&lt;-</span> <span class="fu">as.numeric</span>(<span class="fu">format</span>(<span class="fu">Sys.Date</span>(), <span class="st">"%Y"</span>)) <span class="sc">-</span> <span class="fu">as.numeric</span>(<span class="fu">substr</span>(df<span class="sc">$</span>Date.de.naissance, <span class="dv">1</span>, <span class="dv">4</span>))</span>
+<span id="cb19-40"><a href="#cb19-40" aria-hidden="true" tabindex="-1"></a>  oldest <span class="ot">&lt;-</span> df[<span class="fu">which.max</span>(df<span class="sc">$</span>Age), ]</span>
+<span id="cb19-41"><a href="#cb19-41" aria-hidden="true" tabindex="-1"></a>  oldest[<span class="fu">c</span>(<span class="st">"Nom.de.l.élu"</span>, <span class="st">"Prénom.de.l.élu"</span>)]</span>
+<span id="cb19-42"><a href="#cb19-42" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb19-43"><a href="#cb19-43" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-44"><a href="#cb19-44" aria-hidden="true" tabindex="-1"></a><span class="co">#' Résumé des statistiques d'une commune</span></span>
+<span id="cb19-45"><a href="#cb19-45" aria-hidden="true" tabindex="-1"></a><span class="co">#'</span></span>
+<span id="cb19-46"><a href="#cb19-46" aria-hidden="true" tabindex="-1"></a><span class="co">#' @param x Un `data.frame` contenant `Libellé.de.la.commune`, `Date.de.naissance`, etc.</span></span>
+<span id="cb19-47"><a href="#cb19-47" aria-hidden="true" tabindex="-1"></a><span class="co">#' @export</span></span>
+<span id="cb19-48"><a href="#cb19-48" aria-hidden="true" tabindex="-1"></a>summary.commune <span class="ot">&lt;-</span> <span class="cf">function</span>(x) {</span>
+<span id="cb19-49"><a href="#cb19-49" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cat</span>(<span class="st">"Commune:"</span>, <span class="fu">unique</span>(x<span class="sc">$</span>Libellé.de.la.commune)[<span class="dv">1</span>], <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span>
+<span id="cb19-50"><a href="#cb19-50" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cat</span>(<span class="st">"Nombre d'élus:"</span>, <span class="fu">compter_nombre_d_elus</span>(x), <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span>
+<span id="cb19-51"><a href="#cb19-51" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cat</span>(<span class="st">"Distribution des âges:</span><span class="sc">\n</span><span class="st">"</span>)</span>
+<span id="cb19-52"><a href="#cb19-52" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(<span class="fu">calcul_distribution_age</span>(x))</span>
+<span id="cb19-53"><a href="#cb19-53" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cat</span>(<span class="st">"Élu(e) le plus âgé(e):</span><span class="sc">\n</span><span class="st">"</span>)</span>
+<span id="cb19-54"><a href="#cb19-54" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(<span class="fu">trouver_l_elu_le_plus_age</span>(x))</span>
+<span id="cb19-55"><a href="#cb19-55" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb19-56"><a href="#cb19-56" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-57"><a href="#cb19-57" aria-hidden="true" tabindex="-1"></a><span class="co">#' Résumé des statistiques d'un département</span></span>
+<span id="cb19-58"><a href="#cb19-58" aria-hidden="true" tabindex="-1"></a><span class="co">#'</span></span>
+<span id="cb19-59"><a href="#cb19-59" aria-hidden="true" tabindex="-1"></a><span class="co">#' @param x Un `data.frame` contenant `Code.du.département`, etc.</span></span>
+<span id="cb19-60"><a href="#cb19-60" aria-hidden="true" tabindex="-1"></a><span class="co">#' @export</span></span>
+<span id="cb19-61"><a href="#cb19-61" aria-hidden="true" tabindex="-1"></a>summary.departement <span class="ot">&lt;-</span> <span class="cf">function</span>(x) {</span>
+<span id="cb19-62"><a href="#cb19-62" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cat</span>(<span class="st">"Département:"</span>, <span class="fu">unique</span>(x<span class="sc">$</span>Code.du.département)[<span class="dv">1</span>], <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span>
+<span id="cb19-63"><a href="#cb19-63" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cat</span>(<span class="st">"Nombre de communes:"</span>, <span class="fu">length</span>(<span class="fu">unique</span>(x<span class="sc">$</span>Libellé.de.la.commune)), <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span>
+<span id="cb19-64"><a href="#cb19-64" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cat</span>(<span class="st">"Nombre d'élus:"</span>, <span class="fu">compter_nombre_d_elus</span>(x), <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span>
+<span id="cb19-65"><a href="#cb19-65" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cat</span>(<span class="st">"Distribution des âges:</span><span class="sc">\n</span><span class="st">"</span>)</span>
+<span id="cb19-66"><a href="#cb19-66" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(<span class="fu">calcul_distribution_age</span>(x))</span>
+<span id="cb19-67"><a href="#cb19-67" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb19-68"><a href="#cb19-68" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-69"><a href="#cb19-69" aria-hidden="true" tabindex="-1"></a><span class="co">#' Graphique des professions d'une commune</span></span>
+<span id="cb19-70"><a href="#cb19-70" aria-hidden="true" tabindex="-1"></a><span class="co">#'</span></span>
+<span id="cb19-71"><a href="#cb19-71" aria-hidden="true" tabindex="-1"></a><span class="co">#' @param x Un `data.frame` avec `Libellé.de.la.catégorie.socio.professionnelle`.</span></span>
+<span id="cb19-72"><a href="#cb19-72" aria-hidden="true" tabindex="-1"></a><span class="co">#' @return Un graphique ggplot2.</span></span>
+<span id="cb19-73"><a href="#cb19-73" aria-hidden="true" tabindex="-1"></a><span class="co">#'</span></span>
+<span id="cb19-74"><a href="#cb19-74" aria-hidden="true" tabindex="-1"></a><span class="co">#' @export</span></span>
+<span id="cb19-75"><a href="#cb19-75" aria-hidden="true" tabindex="-1"></a>plot.commune <span class="ot">&lt;-</span> <span class="cf">function</span>(x) {</span>
+<span id="cb19-76"><a href="#cb19-76" aria-hidden="true" tabindex="-1"></a>  titre <span class="ot">&lt;-</span> <span class="fu">paste</span>(<span class="fu">unique</span>(x<span class="sc">$</span>Libellé.de.la.commune)[<span class="dv">1</span>], <span class="st">"-"</span>, <span class="fu">unique</span>(x<span class="sc">$</span>Code.du.département)[<span class="dv">1</span>])</span>
+<span id="cb19-77"><a href="#cb19-77" aria-hidden="true" tabindex="-1"></a>  df_prof <span class="ot">&lt;-</span> <span class="fu">as.data.frame</span>(<span class="fu">table</span>(x<span class="sc">$</span>Libellé.de.la.catégorie.socio.professionnelle))</span>
+<span id="cb19-78"><a href="#cb19-78" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(df_prof, <span class="fu">aes</span>(<span class="at">x=</span><span class="fu">reorder</span>(Var1, Freq), <span class="at">y=</span>Freq)) <span class="sc">+</span></span>
+<span id="cb19-79"><a href="#cb19-79" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_bar</span>(<span class="at">stat=</span><span class="st">"identity"</span>) <span class="sc">+</span></span>
+<span id="cb19-80"><a href="#cb19-80" aria-hidden="true" tabindex="-1"></a>    <span class="fu">coord_flip</span>() <span class="sc">+</span></span>
+<span id="cb19-81"><a href="#cb19-81" aria-hidden="true" tabindex="-1"></a>    <span class="fu">labs</span>(<span class="at">x=</span><span class="st">"Catégories socio-professionnelles"</span>, <span class="at">y=</span><span class="st">"Nombre d'élus"</span>, <span class="at">title=</span>titre)</span>
+<span id="cb19-82"><a href="#cb19-82" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb19-83"><a href="#cb19-83" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-84"><a href="#cb19-84" aria-hidden="true" tabindex="-1"></a><span class="co">#' Graphique des professions d'un département</span></span>
+<span id="cb19-85"><a href="#cb19-85" aria-hidden="true" tabindex="-1"></a><span class="co">#'</span></span>
+<span id="cb19-86"><a href="#cb19-86" aria-hidden="true" tabindex="-1"></a><span class="co">#' @param x Un `data.frame` avec `Libellé.de.la.catégorie.socio.professionnelle`.</span></span>
+<span id="cb19-87"><a href="#cb19-87" aria-hidden="true" tabindex="-1"></a><span class="co">#' @return Un graphique ggplot2.</span></span>
+<span id="cb19-88"><a href="#cb19-88" aria-hidden="true" tabindex="-1"></a><span class="co">#'</span></span>
+<span id="cb19-89"><a href="#cb19-89" aria-hidden="true" tabindex="-1"></a><span class="co">#' @export</span></span>
+<span id="cb19-90"><a href="#cb19-90" aria-hidden="true" tabindex="-1"></a>plot.departement <span class="ot">&lt;-</span> <span class="cf">function</span>(x) {</span>
+<span id="cb19-91"><a href="#cb19-91" aria-hidden="true" tabindex="-1"></a>  titre <span class="ot">&lt;-</span> <span class="fu">paste</span>(<span class="fu">unique</span>(x<span class="sc">$</span>Code.du.département)[<span class="dv">1</span>], <span class="st">"-"</span>, <span class="fu">length</span>(<span class="fu">unique</span>(x<span class="sc">$</span>Libellé.de.la.commune)), <span class="st">"communes"</span>)</span>
+<span id="cb19-92"><a href="#cb19-92" aria-hidden="true" tabindex="-1"></a>  df_prof <span class="ot">&lt;-</span> <span class="fu">as.data.frame</span>(<span class="fu">table</span>(x<span class="sc">$</span>Libellé.de.la.catégorie.socio.professionnelle))</span>
+<span id="cb19-93"><a href="#cb19-93" aria-hidden="true" tabindex="-1"></a>  df_prof <span class="ot">&lt;-</span> df_prof[<span class="fu">order</span>(<span class="sc">-</span>df_prof<span class="sc">$</span>Freq),][<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>,] <span class="co"># Top 10 professions</span></span>
+<span id="cb19-94"><a href="#cb19-94" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(df_prof, <span class="fu">aes</span>(<span class="at">x=</span><span class="fu">reorder</span>(Var1, Freq), <span class="at">y=</span>Freq)) <span class="sc">+</span></span>
+<span id="cb19-95"><a href="#cb19-95" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_bar</span>(<span class="at">stat=</span><span class="st">"identity"</span>) <span class="sc">+</span></span>
+<span id="cb19-96"><a href="#cb19-96" aria-hidden="true" tabindex="-1"></a>    <span class="fu">coord_flip</span>() <span class="sc">+</span></span>
+<span id="cb19-97"><a href="#cb19-97" aria-hidden="true" tabindex="-1"></a>    <span class="fu">labs</span>(<span class="at">x=</span><span class="st">"Top 10 catégories socio-professionnelles"</span>, <span class="at">y=</span><span class="st">"Nombre d'élus"</span>, <span class="at">title=</span>titre)</span>
+<span id="cb19-98"><a href="#cb19-98" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb19-99"><a href="#cb19-99" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-100"><a href="#cb19-100" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-101"><a href="#cb19-101" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-102"><a href="#cb19-102" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-103"><a href="#cb19-103" aria-hidden="true" tabindex="-1"></a><span class="co"># Test for 'calcul_distribution_age'</span></span>
+<span id="cb19-104"><a href="#cb19-104" aria-hidden="true" tabindex="-1"></a><span class="fu">test_that</span>(<span class="st">"calcul_distribution_age fonctionne correctement"</span>, {</span>
+<span id="cb19-105"><a href="#cb19-105" aria-hidden="true" tabindex="-1"></a>  df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">Date.de.naissance =</span> <span class="fu">as.Date</span>(<span class="fu">c</span>(<span class="st">"1970-01-01"</span>, <span class="st">"1980-05-15"</span>, <span class="st">"1995-07-20"</span>)))</span>
+<span id="cb19-106"><a href="#cb19-106" aria-hidden="true" tabindex="-1"></a>  result <span class="ot">&lt;-</span> <span class="fu">calcul_distribution_age</span>(df)</span>
+<span id="cb19-107"><a href="#cb19-107" aria-hidden="true" tabindex="-1"></a>  <span class="fu">expect_length</span>(result, <span class="dv">5</span>)  <span class="co"># Should return 5 quantiles</span></span>
+<span id="cb19-108"><a href="#cb19-108" aria-hidden="true" tabindex="-1"></a>  <span class="fu">expect_true</span>(<span class="fu">all</span>(result <span class="sc">&gt;=</span> <span class="dv">0</span>))  <span class="co"># Ensure no negative age</span></span>
+<span id="cb19-109"><a href="#cb19-109" aria-hidden="true" tabindex="-1"></a>})</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Test passed 🥳</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="fu">test_that</span>(<span class="st">"calcul_distribution_age gère les valeurs manquantes"</span>, {</span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>  df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">Date.de.naissance =</span> <span class="fu">as.Date</span>(<span class="fu">c</span>(<span class="st">"1970-01-01"</span>, <span class="cn">NA</span>, <span class="st">"1995-07-20"</span>)))</span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>  result <span class="ot">&lt;-</span> <span class="fu">calcul_distribution_age</span>(df)</span>
+<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">expect_length</span>(result, <span class="dv">5</span>)</span>
+<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">expect_false</span>(<span class="fu">any</span>(<span class="fu">is.na</span>(result)))  <span class="co"># Ensure no NA values in the quantiles</span></span>
+<span id="cb21-6"><a href="#cb21-6" aria-hidden="true" tabindex="-1"></a>})</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Test passed 🎊</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Test for 'compter_nombre_d_elus'</span></span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a><span class="fu">test_that</span>(<span class="st">"compter_nombre_d_elus fonctionne correctement"</span>, {</span>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>  df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(Nom.de.l.é<span class="at">lu =</span> <span class="fu">c</span>(<span class="st">"Dupont"</span>, <span class="st">"Martin"</span>, <span class="st">"Leroy"</span>),</span>
+<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a>                   Prénom.de.l.é<span class="at">lu =</span> <span class="fu">c</span>(<span class="st">"Jean"</span>, <span class="st">"Pierre"</span>, <span class="st">"Paul"</span>),</span>
+<span id="cb23-5"><a href="#cb23-5" aria-hidden="true" tabindex="-1"></a>                   <span class="at">Date.de.naissance =</span> <span class="fu">as.Date</span>(<span class="fu">c</span>(<span class="st">"1970-01-01"</span>, <span class="st">"1980-05-15"</span>, <span class="st">"1995-07-20"</span>)))</span>
+<span id="cb23-6"><a href="#cb23-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">expect_equal</span>(<span class="fu">compter_nombre_d_elus</span>(df), <span class="dv">3</span>)  <span class="co"># 3 unique elected officials</span></span>
+<span id="cb23-7"><a href="#cb23-7" aria-hidden="true" tabindex="-1"></a>})</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Test passed 🌈</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Test for 'compter_nombre_d_adjoints'</span></span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a><span class="fu">test_that</span>(<span class="st">"compter_nombre_d_adjoints fonctionne correctement"</span>, {</span>
+<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a>  df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(Libellé<span class="at">.de.la.fonction =</span> <span class="fu">c</span>(<span class="st">"Adjoint"</span>, <span class="st">"Maire"</span>, <span class="st">"Adjoint"</span>, <span class="cn">NA</span>))</span>
+<span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">expect_equal</span>(<span class="fu">compter_nombre_d_adjoints</span>(df), <span class="dv">2</span>)  <span class="co"># 2 adjoints found</span></span>
+<span id="cb25-5"><a href="#cb25-5" aria-hidden="true" tabindex="-1"></a>})</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Test passed 🥳</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Test for 'trouver_l_elu_le_plus_age'</span></span>
+<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a><span class="fu">test_that</span>(<span class="st">"trouver_l_elu_le_plus_age fonctionne correctement"</span>, {</span>
+<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a>  df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb27-4"><a href="#cb27-4" aria-hidden="true" tabindex="-1"></a>    Nom.de.l.é<span class="at">lu =</span> <span class="fu">c</span>(<span class="st">"A"</span>, <span class="st">"B"</span>, <span class="st">"C"</span>),</span>
+<span id="cb27-5"><a href="#cb27-5" aria-hidden="true" tabindex="-1"></a>    Prénom.de.l.é<span class="at">lu =</span> <span class="fu">c</span>(<span class="st">"X"</span>, <span class="st">"Y"</span>, <span class="st">"Z"</span>),</span>
+<span id="cb27-6"><a href="#cb27-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">Date.de.naissance =</span> <span class="fu">as.Date</span>(<span class="fu">c</span>(<span class="st">"1950-01-01"</span>, <span class="st">"1980-05-15"</span>, <span class="st">"1995-07-20"</span>))</span>
+<span id="cb27-7"><a href="#cb27-7" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb27-8"><a href="#cb27-8" aria-hidden="true" tabindex="-1"></a>  result <span class="ot">&lt;-</span> <span class="fu">trouver_l_elu_le_plus_age</span>(df)</span>
+<span id="cb27-9"><a href="#cb27-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">expect_equal</span>(result<span class="sc">$</span>Nom.de.l.élu, <span class="st">"A"</span>)  <span class="co"># The oldest is 'A'</span></span>
+<span id="cb27-10"><a href="#cb27-10" aria-hidden="true" tabindex="-1"></a>})</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Test passed 😸</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Test for 'summary.commune'</span></span>
+<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a><span class="fu">test_that</span>(<span class="st">"summary.commune fonctionne correctement"</span>, {</span>
+<span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a>  df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb29-4"><a href="#cb29-4" aria-hidden="true" tabindex="-1"></a>    Libellé<span class="at">.de.la.commune =</span> <span class="fu">rep</span>(<span class="st">"Paris"</span>, <span class="dv">3</span>),</span>
+<span id="cb29-5"><a href="#cb29-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">Date.de.naissance =</span> <span class="fu">as.Date</span>(<span class="fu">c</span>(<span class="st">"1970-01-01"</span>, <span class="st">"1985-06-10"</span>, <span class="st">"2000-12-30"</span>)),</span>
+<span id="cb29-6"><a href="#cb29-6" aria-hidden="true" tabindex="-1"></a>    Nom.de.l.é<span class="at">lu =</span> <span class="fu">c</span>(<span class="st">"Dupont"</span>, <span class="st">"Martin"</span>, <span class="st">"Leroy"</span>),</span>
+<span id="cb29-7"><a href="#cb29-7" aria-hidden="true" tabindex="-1"></a>    Prénom.de.l.é<span class="at">lu =</span> <span class="fu">c</span>(<span class="st">"Jean"</span>, <span class="st">"Pierre"</span>, <span class="st">"Paul"</span>)</span>
+<span id="cb29-8"><a href="#cb29-8" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb29-9"><a href="#cb29-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">expect_output</span>(<span class="fu">summary.commune</span>(df), <span class="st">"Commune: Paris"</span>)  <span class="co"># Ensure the correct commune name is printed</span></span>
+<span id="cb29-10"><a href="#cb29-10" aria-hidden="true" tabindex="-1"></a>})</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Test passed 🎉</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Test for 'summary.departement'</span></span>
+<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a><span class="fu">test_that</span>(<span class="st">"summary.departement fonctionne correctement"</span>, {</span>
+<span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a>  df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb31-4"><a href="#cb31-4" aria-hidden="true" tabindex="-1"></a>    Code.du.département <span class="ot">=</span> <span class="fu">rep</span>(<span class="st">"75"</span>, <span class="dv">3</span>),</span>
+<span id="cb31-5"><a href="#cb31-5" aria-hidden="true" tabindex="-1"></a>    Libellé<span class="at">.de.la.commune =</span> <span class="fu">c</span>(<span class="st">"Paris"</span>, <span class="st">"Neuilly"</span>, <span class="st">"Versailles"</span>),</span>
+<span id="cb31-6"><a href="#cb31-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">Date.de.naissance =</span> <span class="fu">as.Date</span>(<span class="fu">c</span>(<span class="st">"1970-01-01"</span>, <span class="st">"1985-06-10"</span>, <span class="st">"2000-12-30"</span>)),</span>
+<span id="cb31-7"><a href="#cb31-7" aria-hidden="true" tabindex="-1"></a>    Nom.de.l.é<span class="at">lu =</span> <span class="fu">c</span>(<span class="st">"Dupont"</span>, <span class="st">"Martin"</span>, <span class="st">"Leroy"</span>),</span>
+<span id="cb31-8"><a href="#cb31-8" aria-hidden="true" tabindex="-1"></a>    Prénom.de.l.é<span class="at">lu =</span> <span class="fu">c</span>(<span class="st">"Jean"</span>, <span class="st">"Pierre"</span>, <span class="st">"Paul"</span>)</span>
+<span id="cb31-9"><a href="#cb31-9" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb31-10"><a href="#cb31-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">expect_output</span>(<span class="fu">summary.departement</span>(df), <span class="st">"Département: 75"</span>)  <span class="co"># Ensure the correct department is printed</span></span>
+<span id="cb31-11"><a href="#cb31-11" aria-hidden="true" tabindex="-1"></a>})</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Test passed 🎉</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Test for 'plot.commune'</span></span>
+<span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a><span class="fu">test_that</span>(<span class="st">"plot.commune fonctionne correctement"</span>, {</span>
+<span id="cb33-3"><a href="#cb33-3" aria-hidden="true" tabindex="-1"></a>  df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb33-4"><a href="#cb33-4" aria-hidden="true" tabindex="-1"></a>    Libellé<span class="at">.de.la.commune =</span> <span class="fu">rep</span>(<span class="st">"Paris"</span>, <span class="dv">3</span>),</span>
+<span id="cb33-5"><a href="#cb33-5" aria-hidden="true" tabindex="-1"></a>    Libellé.de.la.catégorie<span class="at">.socio.professionnelle =</span> <span class="fu">c</span>(<span class="st">"Prof1"</span>, <span class="st">"Prof2"</span>, <span class="st">"Prof3"</span>),</span>
+<span id="cb33-6"><a href="#cb33-6" aria-hidden="true" tabindex="-1"></a>    Nom.de.l.é<span class="at">lu =</span> <span class="fu">c</span>(<span class="st">"Dupont"</span>, <span class="st">"Martin"</span>, <span class="st">"Leroy"</span>),</span>
+<span id="cb33-7"><a href="#cb33-7" aria-hidden="true" tabindex="-1"></a>    Prénom.de.l.é<span class="at">lu =</span> <span class="fu">c</span>(<span class="st">"Jean"</span>, <span class="st">"Pierre"</span>, <span class="st">"Paul"</span>)</span>
+<span id="cb33-8"><a href="#cb33-8" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb33-9"><a href="#cb33-9" aria-hidden="true" tabindex="-1"></a>  plot <span class="ot">&lt;-</span> <span class="fu">plot.commune</span>(df)  <span class="co"># Generate the plot</span></span>
+<span id="cb33-10"><a href="#cb33-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">expect_s3_class</span>(plot, <span class="st">"gg"</span>)  <span class="co"># Ensure the plot is a ggplot object</span></span>
+<span id="cb33-11"><a href="#cb33-11" aria-hidden="true" tabindex="-1"></a>})</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Test passed 😀</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Test for 'plot.departement'</span></span>
+<span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a><span class="fu">test_that</span>(<span class="st">"plot.departement fonctionne correctement"</span>, {</span>
+<span id="cb35-3"><a href="#cb35-3" aria-hidden="true" tabindex="-1"></a>  df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb35-4"><a href="#cb35-4" aria-hidden="true" tabindex="-1"></a>    Code.du.département <span class="ot">=</span> <span class="fu">rep</span>(<span class="st">"75"</span>, <span class="dv">3</span>),</span>
+<span id="cb35-5"><a href="#cb35-5" aria-hidden="true" tabindex="-1"></a>    Libellé<span class="at">.de.la.commune =</span> <span class="fu">c</span>(<span class="st">"Paris"</span>, <span class="st">"Neuilly"</span>, <span class="st">"Versailles"</span>),</span>
+<span id="cb35-6"><a href="#cb35-6" aria-hidden="true" tabindex="-1"></a>    Libellé.de.la.catégorie<span class="at">.socio.professionnelle =</span> <span class="fu">c</span>(<span class="st">"Prof1"</span>, <span class="st">"Prof2"</span>, <span class="st">"Prof3"</span>),</span>
+<span id="cb35-7"><a href="#cb35-7" aria-hidden="true" tabindex="-1"></a>    Nom.de.l.é<span class="at">lu =</span> <span class="fu">c</span>(<span class="st">"Dupont"</span>, <span class="st">"Martin"</span>, <span class="st">"Leroy"</span>),</span>
+<span id="cb35-8"><a href="#cb35-8" aria-hidden="true" tabindex="-1"></a>    Prénom.de.l.é<span class="at">lu =</span> <span class="fu">c</span>(<span class="st">"Jean"</span>, <span class="st">"Pierre"</span>, <span class="st">"Paul"</span>)</span>
+<span id="cb35-9"><a href="#cb35-9" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb35-10"><a href="#cb35-10" aria-hidden="true" tabindex="-1"></a>  plot <span class="ot">&lt;-</span> <span class="fu">plot.departement</span>(df)  <span class="co"># Generate the plot</span></span>
+<span id="cb35-11"><a href="#cb35-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">expect_s3_class</span>(plot, <span class="st">"gg"</span>)  <span class="co"># Ensure the plot is a ggplot object</span></span>
+<span id="cb35-12"><a href="#cb35-12" aria-hidden="true" tabindex="-1"></a>})</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Test passed 😸</code></pre>
+</div>
+</div>
+
+</main>
+<!-- /main column -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>
