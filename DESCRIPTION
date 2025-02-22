@@ -2,7 +2,7 @@ Package: gitspero
 Title:Projet de fin de cours de Github et R avancé (One Line, Title Case)
 Version: 0.0.0.9000
 Authors@R: 
-    person("First", "Last", , "first.last@example.com", role = c("aut", "cre"))
+    person("Spero", "FALADE", , "first.last@example.com", role = c("aut", "cre"))
 Description: What the package does (one paragraph).
 License: `use_mit_license()`, `use_gpl3_license()` or friends to pick a
     license
