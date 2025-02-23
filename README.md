@@ -4,7 +4,7 @@
 Spéro FALADE, Master ECAP, Université de Nantes
 
 ## Introduction
-Ce projet est un package R avancé permettant de générer des rapports d'analyse basés sur des données régionales. Il inclut des fonctionnalités de création de rapports automatisés, une vignette explicative, et une documentation complète avec pkgdown.
+Ce projet est un package R avancé permettant de générer des rapports d'analyse basés sur des données régionales réalisé dans le cadre du cours de R avancé et de Github. Il inclut des fonctionnalités de création de rapports automatisés, une vignette explicative, et une documentation complète avec pkgdown.
 
 ## Étapes de Développement
 
