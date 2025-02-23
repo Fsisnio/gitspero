@@ -50,33 +50,118 @@
   </div>
 </nav><div class="container template-home">
 <div class="row">
-  <main id="main" class="col-md-9"><p>Documentation du Projet R_advanced_project : Le package gitspero Auteur : Spéro FALADE, Master 1 ECAP, Université de Nantes</p>
-<p>Introduction Ce projet est un package R avancé permettant de générer des rapports d’analyse basés sur des données régionales. Il inclut des fonctionnalités de création de rapports automatisés, une vignette explicative, et une documentation complète avec pkgdown.</p>
-<p>Étapes de Développement</p>
-<ol style="list-style-type: decimal">
-<li>Initialisation du Projet a- Clonage du dépôt et configuration du package avec Git et GitHub. git clone <a href="https://github.com/utilisateur/R_advanced_project.git" class="external-link uri">https://github.com/utilisateur/R_advanced_project.git</a> cd R_advanced_project</li>
-</ol>
-<p>b- Clonage du dépôt et configuration du package avec R usethis::create_package(“R_advanced_project”) usethis::use_git() usethis::use_github()</p>
-<ol start="2" style="list-style-type: decimal">
-<li><p>Ajout de la Fonction generer_rapport a- Création du dossier nécessaire et ajout du fichier de la fonction : mkdir inst touch R/generer_rapport.R b- Documentation et enregistrement des modifications : b.1 Dans R devtools::document() b.2 Dans le terminal git add . git commit -m “Ajout de la fonction generer_rapport” git push</p></li>
-<li>
-<p>Création d’une Vignette Ajout d’une vignette pour documenter l’utilisation du package :</p>
-<ol style="list-style-type: lower-alpha">
-<li>Dans R usethis::use_vignette(“Generer_un_rapport_d_analyses”) devtools::build_vignettes()</li>
-<li>Commit et push git add . git commit -m “Ajout de la vignette” git push</li>
-</ol>
-</li>
-<li>
-<p>Configuration de pkgdown</p>
-<ol style="list-style-type: lower-alpha">
-<li>Installation et configuration de la documentation en ligne : install.packages(“pkgdown”) usethis::use_pkgdown_github_pages() pkgdown::build_site()</li>
-</ol>
-<p>b.Commit et push git add . git commit -m “Ajout de la documentation pkgdown” git push</p>
-</li>
-</ol>
-<p>5.Test et Installation du Package Installation du package depuis GitHub et test de la fonction principale : remotes::install_github(“utilisateur/R_advanced_project”) library(R_advanced_project) generer_rapport(“data”, “rapport_lyon.html”)</p>
+  <main id="main" class="col-md-9"><div class="section level1">
+<div class="page-header"><h1 id="documentation-du-projet-r_advanced_project--le-package-gitspero">Documentation du Projet R_advanced_project : Le package gitspero<a class="anchor" aria-label="anchor" href="#documentation-du-projet-r_advanced_project--le-package-gitspero"></a>
+</h1></div>
+<div class="section level2">
+<h2 id="auteur">Auteur<a class="anchor" aria-label="anchor" href="#auteur"></a>
+</h2>
+<p>Spéro FALADE, Master 1 ECAP, Université de Nantes</p>
+</div>
+<div class="section level2">
+<h2 id="introduction">Introduction<a class="anchor" aria-label="anchor" href="#introduction"></a>
+</h2>
+<p>Ce projet est un package R avancé permettant de générer des rapports d’analyse basés sur des données régionales. Il inclut des fonctionnalités de création de rapports automatisés, une vignette explicative, et une documentation complète avec pkgdown.</p>
+</div>
+<div class="section level2">
+<h2 id="étapes-de-développement">Étapes de Développement<a class="anchor" aria-label="anchor" href="#%C3%A9tapes-de-d%C3%A9veloppement"></a>
+</h2>
+<div class="section level3">
+<h3 id="id_1-initialisation-du-projet">1. Initialisation du Projet<a class="anchor" aria-label="anchor" href="#id_1-initialisation-du-projet"></a>
+</h3>
+<div class="section level4">
+<h4 id="a-clonage-du-dépôt-et-configuration-du-package-avec-git-et-github">a. Clonage du dépôt et configuration du package avec Git et GitHub.<a class="anchor" aria-label="anchor" href="#a-clonage-du-d%C3%A9p%C3%B4t-et-configuration-du-package-avec-git-et-github"></a>
+</h4>
+<div class="sourceCode" id="cb1"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" tabindex="-1"></a><span class="fu">git</span> clone https://github.com/utilisateur/R_advanced_project.git</span>
+<span id="cb1-2"><a href="#cb1-2" tabindex="-1"></a><span class="bu">cd</span> R_advanced_project</span></code></pre></div>
+</div>
+<div class="section level4">
+<h4 id="b-clonage-du-dépôt-et-configuration-du-package-avec-r">b. Clonage du dépôt et configuration du package avec R<a class="anchor" aria-label="anchor" href="#b-clonage-du-d%C3%A9p%C3%B4t-et-configuration-du-package-avec-r"></a>
+</h4>
+<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu">usethis</span><span class="fu">::</span><span class="fu">create_package</span><span class="op">(</span><span class="st">"R_advanced_project"</span><span class="op">)</span></span>
+<span><span class="fu">usethis</span><span class="fu">::</span><span class="fu">use_git</span><span class="op">(</span><span class="op">)</span></span>
+<span><span class="fu">usethis</span><span class="fu">::</span><span class="fu">use_github</span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
+</div>
+</div>
+<div class="section level3">
+<h3 id="id_2-ajout-de-la-fonction-generer_rapport">2. Ajout de la Fonction <code>generer_rapport</code>
+<a class="anchor" aria-label="anchor" href="#id_2-ajout-de-la-fonction-generer_rapport"></a>
+</h3>
+<div class="section level4">
+<h4 id="a-création-du-dossier-nécessaire-et-ajout-du-fichier-de-la-fonction-">a. Création du dossier nécessaire et ajout du fichier de la fonction :<a class="anchor" aria-label="anchor" href="#a-cr%C3%A9ation-du-dossier-n%C3%A9cessaire-et-ajout-du-fichier-de-la-fonction-"></a>
+</h4>
+<div class="sourceCode" id="cb3"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" tabindex="-1"></a><span class="fu">mkdir</span> inst</span>
+<span id="cb3-2"><a href="#cb3-2" tabindex="-1"></a><span class="fu">touch</span> R/generer_rapport.R</span></code></pre></div>
+</div>
+<div class="section level4">
+<h4 id="b-documentation-et-enregistrement-des-modifications-">b. Documentation et enregistrement des modifications :<a class="anchor" aria-label="anchor" href="#b-documentation-et-enregistrement-des-modifications-"></a>
+</h4>
+<div class="section level5">
+<h5 id="b1-dans-r">b.1 Dans R<a class="anchor" aria-label="anchor" href="#b1-dans-r"></a>
+</h5>
+<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu">devtools</span><span class="fu">::</span><span class="fu">document</span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
+</div>
+<div class="section level5">
+<h5 id="b2-dans-le-terminal">b.2 Dans le terminal<a class="anchor" aria-label="anchor" href="#b2-dans-le-terminal"></a>
+</h5>
+<div class="sourceCode" id="cb5"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" tabindex="-1"></a><span class="fu">git</span> add .</span>
+<span id="cb5-2"><a href="#cb5-2" tabindex="-1"></a><span class="fu">git</span> commit <span class="at">-m</span> <span class="st">"Ajout de la fonction generer_rapport"</span></span>
+<span id="cb5-3"><a href="#cb5-3" tabindex="-1"></a><span class="fu">git</span> push</span></code></pre></div>
+</div>
+</div>
+</div>
+<div class="section level3">
+<h3 id="id_3-création-dune-vignette">3. Création d’une Vignette<a class="anchor" aria-label="anchor" href="#id_3-cr%C3%A9ation-dune-vignette"></a>
+</h3>
+<p>Ajout d’une vignette pour documenter l’utilisation du package :</p>
+<div class="section level4">
+<h4 id="a-dans-r">a. Dans R<a class="anchor" aria-label="anchor" href="#a-dans-r"></a>
+</h4>
+<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu">usethis</span><span class="fu">::</span><span class="fu">use_vignette</span><span class="op">(</span><span class="st">"Generer_un_rapport_d_analyses"</span><span class="op">)</span></span>
+<span><span class="fu">devtools</span><span class="fu">::</span><span class="fu">build_vignettes</span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
+</div>
+<div class="section level4">
+<h4 id="b-commit-et-push">b. Commit et push<a class="anchor" aria-label="anchor" href="#b-commit-et-push"></a>
+</h4>
+<div class="sourceCode" id="cb7"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" tabindex="-1"></a><span class="fu">git</span> add .</span>
+<span id="cb7-2"><a href="#cb7-2" tabindex="-1"></a><span class="fu">git</span> commit <span class="at">-m</span> <span class="st">"Ajout de la vignette"</span></span>
+<span id="cb7-3"><a href="#cb7-3" tabindex="-1"></a><span class="fu">git</span> push</span></code></pre></div>
+</div>
+</div>
+<div class="section level3">
+<h3 id="id_4-configuration-de-pkgdown">4. Configuration de pkgdown<a class="anchor" aria-label="anchor" href="#id_4-configuration-de-pkgdown"></a>
+</h3>
+<div class="section level4">
+<h4 id="a-installation-et-configuration-de-la-documentation-en-ligne-">a. Installation et configuration de la documentation en ligne :<a class="anchor" aria-label="anchor" href="#a-installation-et-configuration-de-la-documentation-en-ligne-"></a>
+</h4>
+<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html" class="external-link">install.packages</a></span><span class="op">(</span><span class="st">"pkgdown"</span><span class="op">)</span></span>
+<span><span class="fu">usethis</span><span class="fu">::</span><span class="fu">use_pkgdown_github_pages</span><span class="op">(</span><span class="op">)</span></span>
+<span><span class="fu">pkgdown</span><span class="fu">::</span><span class="fu"><a href="https://pkgdown.r-lib.org/reference/build_site.html" class="external-link">build_site</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
+</div>
+<div class="section level4">
+<h4 id="b-commit-et-push-1">b. Commit et push<a class="anchor" aria-label="anchor" href="#b-commit-et-push-1"></a>
+</h4>
+<div class="sourceCode" id="cb9"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb9-1"><a href="#cb9-1" tabindex="-1"></a><span class="fu">git</span> add .</span>
+<span id="cb9-2"><a href="#cb9-2" tabindex="-1"></a><span class="fu">git</span> commit <span class="at">-m</span> <span class="st">"Ajout de la documentation pkgdown"</span></span>
+<span id="cb9-3"><a href="#cb9-3" tabindex="-1"></a><span class="fu">git</span> push</span></code></pre></div>
+</div>
+</div>
+<div class="section level3">
+<h3 id="id_5-test-et-installation-du-package">5. Test et Installation du Package<a class="anchor" aria-label="anchor" href="#id_5-test-et-installation-du-package"></a>
+</h3>
+<p>Installation du package depuis GitHub et test de la fonction principale :</p>
+<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu">remotes</span><span class="fu">::</span><span class="fu">install_github</span><span class="op">(</span><span class="st">"utilisateur/R_advanced_project"</span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va">R_advanced_project</span><span class="op">)</span></span>
+<span><span class="fu"><a href="reference/generer_rapport.html">generer_rapport</a></span><span class="op">(</span><span class="st">"data"</span>, <span class="st">"rapport_lyon.html"</span><span class="op">)</span></span></code></pre></div>
 <p>Ce projet fournit une solution clé en main pour la génération de rapports d’analyse en R, avec une documentation complète et une accessibilité facilitée via GitHub.</p>
-
+</div>
+</div>
+</div>
   </main><aside class="col-md-3"><div class="license">
 <h2 data-toc-skip>License</h2>
 <ul class="list-unstyled">
