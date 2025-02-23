@@ -81,7 +81,7 @@ Installation du package depuis GitHub et test de la fonction principale :
 ```R
 remotes::install_github("utilisateur/R_advanced_project")
 library(R_advanced_project)
-generer_rapport("data", "rapport_lyon.html")
+generer_rapport("data", "rapport.html")
 ```
 
 Ce projet fournit une solution clé en main pour la génération de rapports d'analyse en R, avec une documentation complète et une accessibilité facilitée via GitHub.
