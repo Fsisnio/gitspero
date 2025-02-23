@@ -1,7 +1,7 @@
 # Documentation du Projet R_advanced_project : Le package gitspero
 
 ## Auteur
-Spéro FALADE, Master 1 ECAP, Université de Nantes
+Spéro FALADE, Master ECAP, Université de Nantes
 
 ## Introduction
 Ce projet est un package R avancé permettant de générer des rapports d'analyse basés sur des données régionales. Il inclut des fonctionnalités de création de rapports automatisés, une vignette explicative, et une documentation complète avec pkgdown.
