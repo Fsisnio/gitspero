@@ -17,3 +17,65 @@ knitr::opts_chunk$set(
 ```{r setup}
 library(gitspero)
 ```
+
+## Introduction
+
+Cette vignette explique l'utilisation des fonctions `summary.commune`, `summary.departement`, et `generer_rapport` en R. Ces fonctions permettent de générer des résumés statistiques et des rapports détaillés pour des données géographiques spécifiques, telles que les communes et les départements.
+
+## Fonction `summary.commune`
+
+La fonction `summary.commune` est utilisée pour obtenir un résumé statistique des données relatives à une commune. Elle permet de calculer des mesures clés comme la moyenne, la médiane, les valeurs minimales et maximales, ainsi que d'autres statistiques descriptives.
+
+```{r, echo=TRUE}
+# Exemple d'utilisation de summary.commune
+data_commune <- data.frame(
+  commune = c("Commune1", "Commune2", "Commune3"),
+  population = c(1000, 1500, 1200),
+  revenu_moyen = c(20000, 22000, 21000)
+)
+
+summary_commune <- summary.commune(data_commune)
+print(summary_commune)
+```
+
+### Description
+
+Cette fonction prend en entrée un jeu de données contenant des informations sur une ou plusieurs communes. Le résultat inclut des statistiques descriptives sur les variables présentes dans le jeu de données, telles que la population, le revenu moyen, ou toute autre variable d'intérêt.
+
+## Fonction `summary.departement`
+
+La fonction `summary.departement` fonctionne de manière similaire à `summary.commune`, mais elle est spécifiquement conçue pour les départements. Elle permet de générer un résumé statistique des données à l'échelle départementale.
+
+```{r, echo=TRUE}
+# Exemple d'utilisation de summary.departement
+data_departement <- data.frame(
+  departement = c("Departement1", "Departement2"),
+  population = c(5000, 7000),
+  revenu_moyen = c(21000, 23000)
+)
+
+summary_departement <- summary.departement(data_departement)
+print(summary_departement)
+```
+
+### Description
+
+Cette fonction prend en entrée un jeu de données au niveau départemental. Les résultats fournissent des statistiques descriptives sur les variables concernant chaque département.
+
+## Fonction `generer_rapport`
+
+La fonction `generer_rapport` permet de générer un rapport détaillé combinant les résumés des communes et des départements. Ce rapport peut être exporté sous différents formats, tels que PDF ou HTML, pour une analyse plus approfondie.
+
+```{r, echo=TRUE}
+# Exemple d'utilisation de generer_rapport
+rapport <- generer_rapport(data_commune, data_departement, format = "pdf")
+print(rapport)
+```
+
+### Description
+
+Cette fonction prend en entrée les jeux de données des communes et des départements. Elle génère un rapport contenant des analyses statistiques détaillées. Le paramètre `format` permet de spécifier le format de sortie du rapport (par exemple, "pdf", "html").
+
+## Conclusion
+
+Les fonctions `summary.commune`, `summary.departement` et `generer_rapport` sont des outils puissants pour effectuer des analyses statistiques à différents niveaux géographiques. Ces fonctions permettent de résumer facilement des données complexes et de générer des rapports complets pour des analyses approfondies.
