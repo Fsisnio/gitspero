@@ -8,7 +8,7 @@ navbar:
   components:
     github:
       icon: fab fa-github
-      href:https://github.com/fsisnio/gitspero
+      href: https://github.com/fsisnio/gitspero
 reference:
   - title: "Functions"
     contents:
@@ -20,4 +20,4 @@ reference:
 articles:
   - title: "Vignettes"
     contents:
-      - vignette  
+      - vignette
