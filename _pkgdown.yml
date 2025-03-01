@@ -1,4 +1,32 @@
-url: https://fsisnio.github.io/gitspero/
+# _pkgdown.yml
 template:
   bootstrap: 5
+
+# Articles Section
+articles:
+  - title: "Generer un rapport d'analyses"
+    contents: Generer_un_rapport_d_analyses
+
+# Reference Section
+reference:
+  - title: "Functions"
+    contents:
+      - summary.commune
+      - summary.departement
+      - generer_rapport
+
+# Navbar Section (optional, to customize the navigation)
+navbar:
+  title: "gitspero"
+  left:
+    - text: "Home"
+      href: index.html
+    - text: "Functions"
+      href: reference/index.html
+    - text: "Articles"
+      href: articles/Generer_un_rapport_d_analyses.html
+
+# Footer (optional)
+footer:
+  text: "gitspero package"
 
