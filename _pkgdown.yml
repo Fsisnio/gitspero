@@ -1,12 +1,4 @@
 url: https://fsisnio.github.io/gitspero/
 template:
   bootstrap: 5
-navbar:
-  structure:
-    left: [home, reference, articles, news]
-    right: [github]
-  components:
-    github:
-      icon: fab fa-github
-      href: https://github.com/fsisnio/gitspero
 
