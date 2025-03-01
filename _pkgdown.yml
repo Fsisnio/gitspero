@@ -1,48 +1,20 @@
 url: https://fsisnio.github.io/gitspero/
 template:
   bootstrap: 5
-
 navbar:
   structure:
-    left:  [home, reference, articles, news]
+    left: [home, reference, articles, news]
     right: [github]
   components:
-    home:
-      text: "Accueil"
-      href: index.html
-    reference:
-      text: "Référence"
-      href: reference/index.html
-    articles:
-      text: "Articles"
-      href: articles/index.html
-    news:
-      text: "Actualités"
-      href: news/index.html
     github:
-      icon: fa-github
-      href: https://github.com/fsisnio/gitspero
-
+      icon: fab fa-github
+      href: https://github.com/utilisateur/R_advanced_project
 reference:
-  - title: "Fonctions principales"
-    desc: "Documentation des fonctions principales du package."
+  - title: "Functions"
     contents:
-      - calcul_distribution_age
-      - compter_nombre_d_adjoints
-      - compter_nombre_d_elus
-      - trouver_l_elu_le_plus_age
-      - summary.commune
-      - summary.departement
-      - plot.commune
-      - plot.departement
-
+      - calcul_distribution_age  # Ensure this function exists
+      - another_function_name  # Add only valid function names
 articles:
-  - title: "Guide d'utilisation"
+  - title: "Vignettes"
     contents:
-      - vignette
-
-news:
-  one_page: true
-  releases:
-    - text: "Version 1.0.0 - Initial Release"
-      href: news/index.html
+      - my_vignette  # Ensure this exists in `vignettes/`
