@@ -18,7 +18,7 @@ library(dplyr)
 
 
 # Source the R script with functions
-source("C:/Users/DELL/Downloads/cours_r_semaine_3/semaine3.R")  # Remplacez par le bon chemin
+source("C:/Users/DELL/Downloads/cours_r_semaine_3/semaine3.R")  
 
 
 
@@ -172,7 +172,7 @@ test_that("summary.commune fonctionne correctement", {
     Nom.de.l.élu = c("Dupont", "Martin", "Leroy"),
     Prénom.de.l.élu = c("Jean", "Pierre", "Paul")
   )
-  expect_output(summary.commune(df), "Commune: Paris")  # Ensure the correct commune name is printed
+  expect_output(summary.commune(df), "Commune: Paris")  
 })
 
 # Test for 'summary.departement'
@@ -184,7 +184,7 @@ test_that("summary.departement fonctionne correctement", {
     Nom.de.l.élu = c("Dupont", "Martin", "Leroy"),
     Prénom.de.l.élu = c("Jean", "Pierre", "Paul")
   )
-  expect_output(summary.departement(df), "Département: 75")  # Ensure the correct department is printed
+  expect_output(summary.departement(df), "Département: 75")  
 })
 
 # Test for 'plot.commune'
@@ -196,7 +196,7 @@ test_that("plot.commune fonctionne correctement", {
     Prénom.de.l.élu = c("Jean", "Pierre", "Paul")
   )
   plot <- plot.commune(df)  # Generate the plot
-  expect_s3_class(plot, "gg")  # Ensure the plot is a ggplot object
+  expect_s3_class(plot, "gg")  
 })
 
 # Test for 'plot.departement'
@@ -208,8 +208,8 @@ test_that("plot.departement fonctionne correctement", {
     Nom.de.l.élu = c("Dupont", "Martin", "Leroy"),
     Prénom.de.l.élu = c("Jean", "Pierre", "Paul")
   )
-  plot <- plot.departement(df)  # Generate the plot
-  expect_s3_class(plot, "gg")  # Ensure the plot is a ggplot object
+  plot <- plot.departement(df)  
+  expect_s3_class(plot, "gg")  
 })
 
 
