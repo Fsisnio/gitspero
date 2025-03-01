@@ -1,6 +1,3 @@
-Voici la documentation mise à jour avec les descriptions des fonctions de ton projet :
-
----
 
 # Documentation du Projet R_advanced_project : Le package gitspero
 
