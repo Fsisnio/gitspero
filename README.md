@@ -158,8 +158,8 @@ git push
 ### 5. Test et Installation du Package
 Installation du package depuis GitHub et test de la fonction principale :
 ```R
-remotes::install_github("utilisateur/R_advanced_project")
-library(R_advanced_project)
+remotes::install_github("fsisnio/gitspero")
+library(gitspero)
 generer_rapport("data", "rapport.html")
 ```
 
