@@ -12,9 +12,12 @@ navbar:
 reference:
   - title: "Functions"
     contents:
-      - calcul_distribution_age  # Ensure this function exists
-      - another_function_name  # Add only valid function names
+      - calcul_distribution_age
+      - compter_nombre_d_adjoints
+      - generer_rapport
+      - plot.commune
+      - plot.departement
 articles:
   - title: "Vignettes"
     contents:
-      - my_vignette  # Ensure this exists in `vignettes/`
+      - vignette  
