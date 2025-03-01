@@ -13,7 +13,7 @@ License: MIT + file LICENSE
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.3.2
-URL: https://fsisnio.github.io/gitspero/
+URL: https://gitspero.github.io/gitspero
 BugReports: https://github.com/utilisateur/R_advanced_project/issues
 VignetteBuilder: knitr
 Depends: 
