@@ -8,13 +8,6 @@ articles:
   - title: "Generer un rapport d'analyses"
     contents: Generer_un_rapport_d_analyses
 
-# Reference Section
-reference:
-  - title: "Functions"
-    contents:
-      - summary.commune
-      - summary.departement
-      - generer_rapport
 
 # Navbar Section (optional, to customize the navigation)
 navbar:
