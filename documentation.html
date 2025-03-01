@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Documentation du Package gitspero - R_advanced_project</title>
+    <style>
+        body { font-family: Arial, sans-serif; line-height: 1.6; margin: 0; padding: 0; background: #f9f9f9; color: #333; }
+        .container { width: 80%; margin: 0 auto; padding: 20px; }
+        h1, h2 { color: #005a9c; }
+        h3 { margin-top: 10px; }
+        pre { background: #f4f4f4; padding: 15px; border-radius: 5px; overflow-x: auto; }
+        .section { margin-bottom: 20px; }
+        .function { margin-left: 20px; }
+        .function-name { font-weight: bold; color: #2c3e50; }
+        .param, .return { margin-left: 20px; font-style: italic; }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Documentation du Package gitspero- R_advanced_project</h1>
+
+        <h2>Fonctions incluses dans le package</h2>
+
+        <div class="section">
+            <h3 class="function-name">calcul_distribution_age</h3>
+            <p>Cette fonction calcule la distribution des âges d'un dataframe df contenant une colonne Date.de.naissance. Elle renvoie un vecteur de quartiles des âges.</p>
+            <div class="param"><b>Paramètres :</b> <br> 
+                df : Un data.frame contenant une colonne Date.de.naissance au format Date.
+            </div>
+            <div class="return"><b>Retour :</b> <br> 
+                Un vecteur de quartiles des âges.
+            </div>
+        </div>
+
+        <div class="section">
+            <h3 class="function-name">compter_nombre_d_adjoints</h3>
+            <p>Cette fonction compte le nombre d'adjoints dans un dataframe df en fonction de la présence du mot "adjoint" dans la colonne Libellé.de.la.fonction.</p>
+            <div class="param"><b>Paramètres :</b> <br> 
+                df : Un data.frame contenant la colonne Libellé.de.la.fonction.
+            </div>
+            <div class="return"><b>Retour :</b> <br> 
+                Un entier représentant le nombre d'adjoints trouvés.
+            </div>
+        </div>
+
+        <div class="section">
+            <h3 class="function-name">compter_nombre_d_elus</h3>
+            <p>Cette fonction retourne le nombre total d'élus dans un dataframe df.</p>
+            <div class="param"><b>Paramètres :</b> <br> 
+                df : Un data.frame des élus.
+            </div>
+            <div class="return"><b>Retour :</b> <br> 
+                Un entier représentant le nombre d'élus.
+            </div>
+        </div>
+
+        <div class="section">
+            <h3 class="function-name">trouver_l_elu_le_plus_age</h3>
+            <p>Cette fonction permet de trouver l'élu(e) le plus âgé(e) dans un dataframe df en utilisant la colonne Date.de.naissance.</p>
+            <div class="param"><b>Paramètres :</b> <br> 
+                df : Un data.frame contenant la colonne Date.de.naissance.
+            </div>
+            <div class="return"><b>Retour :</b> <br> 
+                Un data.frame contenant l'élu(e) le plus âgé(e).
+            </div>
+        </div>
+
+        <div class="section">
+            <h3 class="function-name">summary.commune</h3>
+            <p>Cette fonction génère un résumé des statistiques pour une commune spécifique. Elle imprime des informations telles que le nombre d'élus, la distribution des âges et l'élu(e) le plus âgé(e).</p>
+            <div class="param"><b>Paramètres :</b> <br> 
+                x : Un data.frame contenant les données d'une commune.
+            </div>
+            <div class="return"><b>Retour :</b> <br> 
+                Aucun retour, mais la fonction affiche des statistiques.
+            </div>
+        </div>
+
+        <div class="section">
+            <h3 class="function-name">summary.departement</h3>
+            <p>Cette fonction génère un résumé des statistiques pour un département spécifique. Elle affiche des informations comme le nombre de communes, le nombre d'élus et la distribution des âges.</p>
+            <div class="param"><b>Paramètres :</b> <br> 
+                x : Un data.frame contenant les données d'un département.
+            </div>
+            <div class="return"><b>Retour :</b> <br> 
+                Aucun retour, mais la fonction affiche des statistiques.
+            </div>
+        </div>
+
+        <div class="section">
+            <h3 class="function-name">plot.commune</h3>
+            <p>Cette fonction génère un graphique à barres pour les catégories socio-professionnelles des élus dans une commune, à partir du dataframe df contenant Libellé.de.la.catégorie.socio.professionnelle.</p>
+            <div class="param"><b>Paramètres :</b> <br> 
+                x : Un data.frame avec Libellé.de.la.catégorie.socio.professionnelle.
+            </div>
+            <div class="return"><b>Retour :</b> <br> 
+                Un graphique ggplot2 représentant les catégories socio-professionnelles.
+            </div>
+        </div>
+
+        <div class="section">
+            <h3 class="function-name">plot.departement</h3>
+            <p>Cette fonction génère un graphique à barres pour les catégories socio-professionnelles des élus dans un département, affichant uniquement les 10 professions les plus fréquentes.</p>
+            <div class="param"><b>Paramètres :</b> <br> 
+                x : Un data.frame avec Libellé.de.la.catégorie.socio.professionnelle.
+            </div>
+            <div class="return"><b>Retour :</b> <br> 
+                Un graphique ggplot2 représentant les top 10 catégories socio-professionnelles.
+            </div>
+        </div>
+
+        <h2>Étapes de Développement</h2>
+        <h3>1. Initialisation du Projet</h3>
+        <p><b>a. Clonage du dépôt et configuration du package avec Git et GitHub.</b><br>
+            <pre>git clone https://github.com/utilisateur/R_advanced_project.git</pre>
+            <pre>cd R_advanced_project</pre></p>
+        <p><b>b. Clonage du dépôt et configuration du package avec R</b><br>
+            <pre>usethis::create_package("R_advanced_project")</pre>
+            <pre>usethis::use_git()</pre>
+            <pre>usethis::use_github()</pre></p>
+
+        <h3>2. Ajout de la Fonction generer_rapport</h3>
+        <p><b>a. Création du dossier nécessaire et ajout du fichier de la fonction :</b><br>
+            <pre>mkdir inst</pre>
+            <pre>touch R/generer_rapport.R</pre></p>
+        <p><b>b. Documentation et enregistrement des modifications :</b><br>
+            <pre>devtools::document()</pre></p>
+        <p><b>Dans le terminal :</b><br>
+            <pre>git add .</pre>
+            <pre>git commit -m "Ajout de la fonction generer_rapport"</pre>
+            <pre>git push</pre></p>
+
+        <h3>3. Création d'une Vignette</h3>
+        <p><b>Ajout d'une vignette pour documenter l'utilisation du package :</b><br>
+            <pre>usethis::use_vignette("Generer_un_rapport_d_analyses")</pre>
+            <pre>devtools::build_vignettes()</pre></p>
+        <p><b>Commit et push :</b><br>
+            <pre>git add .</pre>
+            <pre>git commit -m "Ajout de la vignette"</pre>
+            <pre>git push</pre></p>
+
+        <h3>4. Configuration de pkgdown</h3>
+        <p><b>a. Installation et configuration de la documentation en ligne :</b><br>
+            <pre>install.packages("pkgdown")</pre>
+            <pre>usethis::use_pkgdown_github_pages()</pre>
+            <pre>pkgdown::build_site()</pre></p>
+        <p><b>b. Commit et push :</b><br>
+            <pre>git add .</pre>
+            <pre>git commit -m "Ajout de la documentation pkgdown"</pre>
+            <pre>git push</pre></p>
+
+        <h3>5. Test et Installation du Package</h3>
+        <p><b>Installation du package depuis GitHub et test de la fonction principale :</b><br>
+            <pre>remotes::install_github("utilisateur/R_advanced_project")</pre>
+            <pre>library(R_advanced_project)</pre>
+            <pre>generer_rapport("data", "rapport.html")</pre></p>
+
+    </div>
+
+</body>
+</html>

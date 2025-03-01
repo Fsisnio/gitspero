@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vignette du Package gitspero - R_advanced_project</title>
+    <style>
+        body { font-family: Arial, sans-serif; line-height: 1.6; margin: 0; padding: 0; background: #f9f9f9; color: #333; }
+        .container { width: 80%; margin: 0 auto; padding: 20px; }
+        h1, h2 { color: #005a9c; }
+        h3 { margin-top: 10px; }
+        pre { background: #f4f4f4; padding: 15px; border-radius: 5px; overflow-x: auto; }
+        .section { margin-bottom: 20px; }
+        .function { margin-left: 20px; }
+        .function-name { font-weight: bold; color: #2c3e50; }
+        .param, .return { margin-left: 20px; font-style: italic; }
+        .example { background: #e9ecef; padding: 10px; border-radius: 5px; margin-top: 10px; }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Vignette du Package gitspero - R_advanced_project</h1>
+        
+        <h2>Introduction</h2>
+        <p>Ce package fournit des outils pour analyser et générer des rapports à partir de données sur les élus et leurs caractéristiques. Vous pouvez calculer des distributions d'âge, obtenir des statistiques détaillées sur des communes ou des départements, et visualiser les catégories socio-professionnelles des élus sous forme de graphiques.</p>
+
+        <h2>Utilisation du Package</h2>
+        
+        <h3>1. Installation et Chargement</h3>
+        <p>Pour commencer à utiliser le package, installez-le depuis GitHub avec la commande suivante :</p>
+        <pre>remotes::install_github("utilisateur/R_advanced_project")</pre>
+        <p>Ensuite, chargez le package dans votre session R :</p>
+        <pre>library(R_advanced_project)</pre>
+
+        <h3>2. Calcul de la Distribution des Âges</h3>
+        <p>Utilisez la fonction <code>calcul_distribution_age</code> pour calculer les quartiles des âges à partir d'un dataframe contenant une colonne <code>Date.de.naissance</code>.</p>
+        <div class="example">
+            <pre>df <- data.frame(Date.de.naissance = as.Date(c("1980-01-01", "1990-05-12", "1975-08-22"))) 
+calcul_distribution_age(df)</pre>
+            <p>Retournera un vecteur des quartiles des âges des personnes dans le dataframe.</p>
+        </div>
+
+        <h3>3. Compter les Adjoints</h3>
+        <p>Pour compter le nombre d'adjoints dans un dataframe, utilisez la fonction <code>compter_nombre_d_adjoints</code>. Elle recherche la présence du mot "adjoint" dans la colonne <code>Libellé.de.la.fonction</code>.</p>
+        <div class="example">
+            <pre>df <- data.frame(Libellé.de.la.fonction = c("Maire", "Adjoint", "Adjoint"))
+compter_nombre_d_adjoints(df)</pre>
+            <p>Retournera le nombre d'adjoints trouvés dans le dataframe.</p>
+        </div>
+
+        <h3>4. Générer un Rapport</h3>
+        <p>Utilisez la fonction <code>generer_rapport</code> pour créer un rapport au format HTML avec les analyses souhaitées.</p>
+        <div class="example">
+            <pre>generer_rapport("chemin/vers/df.csv", "rapport.html")</pre>
+            <p>Cette fonction génère un rapport sous forme de fichier HTML contenant des informations sur les élus et leurs caractéristiques.</p>
+        </div>
+
+        <h3>5. Visualisation des Catégories Socio-Professionnelles</h3>
+        <p>Les fonctions <code>plot.commune</code> et <code>plot.departement</code> génèrent des graphiques à barres pour visualiser les catégories socio-professionnelles des élus dans une commune ou un département.</p>
+        <div class="example">
+            <pre>plot.commune(df)</pre>
+            <p>Affiche un graphique des catégories socio-professionnelles pour les élus dans le dataframe.</p>
+        </div>
+        <div class="example">
+            <pre>plot.departement(df)</pre>
+            <p>Affiche un graphique des 10 catégories socio-professionnelles les plus fréquentes dans le dataframe.</p>
+        </div>
+
+        <h2>Résumé des Fonctions</h2>
+        <p>Voici un résumé rapide des principales fonctions du package :</p>
+        <ul>
+            <li><code>calcul_distribution_age(df)</code> : Calcule la distribution des âges des personnes dans le dataframe <code>df</code>.</li>
+            <li><code>compter_nombre_d_adjoints(df)</code> : Compte le nombre d'adjoints dans le dataframe <code>df</code>.</li>
+            <li><code>compter_nombre_d_elus(df)</code> : Compte le nombre total d'élus dans le dataframe <code>df</code>.</li>
+            <li><code>trouver_l_elu_le_plus_age(df)</code> : Trouve l'élu(e) le plus âgé(e) dans le dataframe <code>df</code>.</li>
+            <li><code>summary.commune(x)</code> : Affiche des statistiques pour une commune.</li>
+            <li><code>summary.departement(x)</code> : Affiche des statistiques pour un département.</li>
+            <li><code>plot.commune(x)</code> : Génère un graphique des catégories socio-professionnelles dans une commune.</li>
+            <li><code>plot.departement(x)</code> : Génère un graphique des 10 catégories socio-professionnelles les plus fréquentes dans un département.</li>
+        </ul>
+
+        <h2>Conclusion</h2>
+        <p>Le package <b>R_advanced_project</b> offre un ensemble de fonctions utiles pour analyser les données des élus, générer des rapports et produire des visualisations. Il est conçu pour faciliter l'analyse statistique et la création de rapports sur les élus et leurs caractéristiques socio-professionnelles.</p>
+
+    </div>
+
+</body>
+</html>
