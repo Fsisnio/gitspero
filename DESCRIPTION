@@ -1,11 +1,13 @@
 Package: gitspero
-Title: Projet de fin de cours de Github et R avancé 
+Title: Projet de fin de cours de Github et R avancé
 Version: 0.0.0.9000
 Authors@R: 
     person("Spero", "FALADE", , "first.last@example.com", role = c("aut", "cre"))
-Description: Ce package permet de générer des résumés statistiques et des rapports détaillés pour des données géographiques spécifiques, telles que les communes et les départements. Il offre des outils pour l'analyse des données régionales et la génération de rapports automatisés, facilitant ainsi la prise de décision basée sur les données.
-License: `use_mit_license()`, `use_gpl3_license()` ou des amis pour choisir une licence
+Description: Ce package permet de générer des résumés statistiques et des rapports détaillés pour des données géographiques spécifiques, telles que les communes et les départements. Il offre des outils pour l'analyse des données régionales, y compris le calcul des distributions des âges, le comptage des adjoints et élus, et la génération de graphiques et de rapports automatisés. Ce projet facilite la prise de décision basée sur les données et est conçu pour être facilement utilisé dans des analyses sur des données d'élus ou de communes.
+License: MIT + file LICENSE (ou choisissez une autre licence appropriée)
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.3.2
 URL: https://fsisnio.github.io/gitspero/
+BugReports: https://github.com/utilisateur/R_advanced_project/issues
+VignetteBuilder: knitr
