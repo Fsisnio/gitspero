@@ -11,8 +11,8 @@
 <script src="deps/bootstrap-5.3.1/bootstrap.bundle.min.js"></script><link href="deps/font-awesome-6.5.2/css/all.min.css" rel="stylesheet">
 <link href="deps/font-awesome-6.5.2/css/v4-shims.min.css" rel="stylesheet">
 <script src="deps/headroom-0.11.0/headroom.min.js"></script><script src="deps/headroom-0.11.0/jQuery.headroom.min.js"></script><script src="deps/bootstrap-toc-1.0.1/bootstrap-toc.min.js"></script><script src="deps/clipboard.js-2.0.11/clipboard.min.js"></script><script src="deps/search-1.0.0/autocomplete.jquery.min.js"></script><script src="deps/search-1.0.0/fuse.min.js"></script><script src="deps/search-1.0.0/mark.min.js"></script><!-- pkgdown --><script src="pkgdown.js"></script><meta property="og:title" content="Projet de fin de cours de Github et R avancé">
-<meta name="description" content="What the package does (one paragraph).">
-<meta property="og:description" content="What the package does (one paragraph).">
+<meta name="description" content="Ce package permet de générer des résumés statistiques et des rapports détaillés pour des données géographiques spécifiques, telles que les communes et les départements. Il offre des outils pour lanalyse des données régionales, y compris le calcul des distributions des âges, le comptage des adjoints et élus, et la génération de graphiques et de rapports automatisés. Ce projet facilite la prise de décision basée sur les données et est conçu pour être facilement utilisé dans des analyses sur des données délus ou de communes.">
+<meta property="og:description" content="Ce package permet de générer des résumés statistiques et des rapports détaillés pour des données géographiques spécifiques, telles que les communes et les départements. Il offre des outils pour lanalyse des données régionales, y compris le calcul des distributions des âges, le comptage des adjoints et élus, et la génération de graphiques et de rapports automatisés. Ce projet facilite la prise de décision basée sur les données et est conçu pour être facilement utilisé dans des analyses sur des données délus ou de communes.">
 </head>
 <body>
     <a href="#main" class="visually-hidden-focusable">Skip to contents</a>
@@ -31,18 +31,15 @@
 
     <div id="navbar" class="collapse navbar-collapse ms-3">
       <ul class="navbar-nav me-auto">
-<li class="nav-item"><a class="nav-link" href="reference/index.html">Reference</a></li>
-<li class="nav-item dropdown">
-  <button class="nav-link dropdown-toggle" type="button" id="dropdown-articles" data-bs-toggle="dropdown" aria-expanded="false" aria-haspopup="true">Articles</button>
-  <ul class="dropdown-menu" aria-labelledby="dropdown-articles">
-<li><a class="dropdown-item" href="articles/Generer_un_rapport_d_analyses.html">Generer_un_rapport_d_analyses</a></li>
-  </ul>
-</li>
+<li class="active nav-item"><a class="nav-link" href="index.html">Home</a></li>
+<li class="nav-item"><a class="nav-link" href="reference/index.html">Functions</a></li>
+<li class="nav-item"><a class="nav-link" href="articles/Generer_un_rapport_d_analyses.html">Articles</a></li>
       </ul>
 <ul class="navbar-nav">
 <li class="nav-item"><form class="form-inline" role="search">
  <input class="form-control" type="search" name="search-input" id="search-input" autocomplete="off" aria-label="Search site" placeholder="Search for" data-search-index="search.json">
 </form></li>
+<li class="nav-item"><a class="external-link nav-link" href="https://github.com/utilisateur/R_advanced_project/" aria-label="GitHub"><span class="fa fab fa-github fa-lg"></span></a></li>
       </ul>
 </div>
 
@@ -62,6 +59,121 @@
 <h2 id="introduction">Introduction<a class="anchor" aria-label="anchor" href="#introduction"></a>
 </h2>
 <p>Ce projet est un package R avancé permettant de générer des rapports d’analyse basés sur des données régionales réalisé dans le cadre du cours de R avancé et de Github. Il inclut des fonctionnalités de création de rapports automatisés, une vignette explicative, et une documentation complète avec pkgdown.</p>
+</div>
+<div class="section level2">
+<h2 id="fonctionnalités">Fonctionnalités<a class="anchor" aria-label="anchor" href="#fonctionnalit%C3%A9s"></a>
+</h2>
+<div class="section level3">
+<h3 id="fonctions-incluses-dans-le-package">Fonctions incluses dans le package<a class="anchor" aria-label="anchor" href="#fonctions-incluses-dans-le-package"></a>
+</h3>
+<ol style="list-style-type: decimal">
+<li>
+<p><strong><code>calcul_distribution_age</code></strong><br>
+Cette fonction calcule la distribution des âges d’un dataframe <code>df</code> contenant une colonne <code>Date.de.naissance</code>. Elle renvoie un vecteur de quartiles des âges.</p>
+<p><strong>Paramètres</strong> :</p>
+<ul>
+<li>
+<code>df</code> : Un <code>data.frame</code> contenant une colonne <code>Date.de.naissance</code> au format Date.</li>
+</ul>
+<p><strong>Retour</strong> :</p>
+<ul>
+<li>Un vecteur de quartiles des âges.</li>
+</ul>
+</li>
+<li>
+<p><strong><code>compter_nombre_d_adjoints</code></strong><br>
+Cette fonction compte le nombre d’adjoints dans un dataframe <code>df</code> en fonction de la présence du mot “adjoint” dans la colonne <code>Libellé.de.la.fonction</code>.</p>
+<p><strong>Paramètres</strong> :</p>
+<ul>
+<li>
+<code>df</code> : Un <code>data.frame</code> contenant la colonne <code>Libellé.de.la.fonction</code>.</li>
+</ul>
+<p><strong>Retour</strong> :</p>
+<ul>
+<li>Un entier représentant le nombre d’adjoints trouvés.</li>
+</ul>
+</li>
+<li>
+<p><strong><code>compter_nombre_d_elus</code></strong><br>
+Cette fonction retourne le nombre total d’élus dans un dataframe <code>df</code>.</p>
+<p><strong>Paramètres</strong> :</p>
+<ul>
+<li>
+<code>df</code> : Un <code>data.frame</code> des élus.</li>
+</ul>
+<p><strong>Retour</strong> :</p>
+<ul>
+<li>Un entier représentant le nombre d’élus.</li>
+</ul>
+</li>
+<li>
+<p><strong><code>trouver_l_elu_le_plus_age</code></strong><br>
+Cette fonction permet de trouver l’élu(e) le plus âgé(e) dans un dataframe <code>df</code> en utilisant la colonne <code>Date.de.naissance</code>.</p>
+<p><strong>Paramètres</strong> :</p>
+<ul>
+<li>
+<code>df</code> : Un <code>data.frame</code> contenant la colonne <code>Date.de.naissance</code>.</li>
+</ul>
+<p><strong>Retour</strong> :</p>
+<ul>
+<li>Un <code>data.frame</code> contenant l’élu(e) le plus âgé(e).</li>
+</ul>
+</li>
+<li>
+<p><strong><code>summary.commune</code></strong><br>
+Cette fonction génère un résumé des statistiques pour une commune spécifique. Elle imprime des informations telles que le nombre d’élus, la distribution des âges et l’élu(e) le plus âgé(e).</p>
+<p><strong>Paramètres</strong> :</p>
+<ul>
+<li>
+<code>x</code> : Un <code>data.frame</code> contenant les données d’une commune.</li>
+</ul>
+<p><strong>Retour</strong> :</p>
+<ul>
+<li>Aucun retour, mais la fonction affiche des statistiques.</li>
+</ul>
+</li>
+<li>
+<p><strong><code>summary.departement</code></strong><br>
+Cette fonction génère un résumé des statistiques pour un département spécifique. Elle affiche des informations comme le nombre de communes, le nombre d’élus et la distribution des âges.</p>
+<p><strong>Paramètres</strong> :</p>
+<ul>
+<li>
+<code>x</code> : Un <code>data.frame</code> contenant les données d’un département.</li>
+</ul>
+<p><strong>Retour</strong> :</p>
+<ul>
+<li>Aucun retour, mais la fonction affiche des statistiques.</li>
+</ul>
+</li>
+<li>
+<p><strong><code>plot.commune</code></strong><br>
+Cette fonction génère un graphique à barres pour les catégories socio-professionnelles des élus dans une commune, à partir du dataframe <code>df</code> contenant <code>Libellé.de.la.catégorie.socio.professionnelle</code>.</p>
+<p><strong>Paramètres</strong> :</p>
+<ul>
+<li>
+<code>x</code> : Un <code>data.frame</code> avec <code>Libellé.de.la.catégorie.socio.professionnelle</code>.</li>
+</ul>
+<p><strong>Retour</strong> :</p>
+<ul>
+<li>Un graphique <code>ggplot2</code> représentant les catégories socio-professionnelles.</li>
+</ul>
+</li>
+<li>
+<p><strong><code>plot.departement</code></strong><br>
+Cette fonction génère un graphique à barres pour les catégories socio-professionnelles des élus dans un département, affichant uniquement les 10 professions les plus fréquentes.</p>
+<p><strong>Paramètres</strong> :</p>
+<ul>
+<li>
+<code>x</code> : Un <code>data.frame</code> avec <code>Libellé.de.la.catégorie.socio.professionnelle</code>.</li>
+</ul>
+<p><strong>Retour</strong> :</p>
+<ul>
+<li>Un graphique <code>ggplot2</code> représentant les top 10 catégories socio-professionnelles.</li>
+</ul>
+</li>
+</ol>
+<hr>
+</div>
 </div>
 <div class="section level2">
 <h2 id="étapes-de-développement">Étapes de Développement<a class="anchor" aria-label="anchor" href="#%C3%A9tapes-de-d%C3%A9veloppement"></a>
@@ -155,17 +267,28 @@
 </h3>
 <p>Installation du package depuis GitHub et test de la fonction principale :</p>
 <div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu">remotes</span><span class="fu">::</span><span class="fu">install_github</span><span class="op">(</span><span class="st">"utilisateur/R_advanced_project"</span><span class="op">)</span></span>
-<span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va">R_advanced_project</span><span class="op">)</span></span>
+<code class="sourceCode R"><span><span class="fu">remotes</span><span class="fu">::</span><span class="fu">install_github</span><span class="op">(</span><span class="st">"fsisnio/gitspero"</span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://gitspero.github.io/gitspero">gitspero</a></span><span class="op">)</span></span>
 <span><span class="fu"><a href="reference/generer_rapport.html">generer_rapport</a></span><span class="op">(</span><span class="st">"data"</span>, <span class="st">"rapport.html"</span><span class="op">)</span></span></code></pre></div>
 <p>Ce projet fournit une solution clé en main pour la génération de rapports d’analyse en R, avec une documentation complète et une accessibilité facilitée via GitHub.</p>
+<hr>
 </div>
 </div>
 </div>
-  </main><aside class="col-md-3"><div class="license">
+  </main><aside class="col-md-3"><div class="links">
+<h2 data-toc-skip>Links</h2>
+<ul class="list-unstyled">
+<li><a href="https://github.com/utilisateur/R_advanced_project/" class="external-link">Browse source code</a></li>
+<li><a href="https://github.com/utilisateur/R_advanced_project/issues" class="external-link">Report a bug</a></li>
+</ul>
+</div>
+
+<div class="license">
 <h2 data-toc-skip>License</h2>
 <ul class="list-unstyled">
-<li>`use_mit_license()`, `use_gpl3_license()` or friends to pick a license</li>
+<li>
+<a href="https://opensource.org/licenses/mit-license.php" class="external-link">MIT</a> + file <a href="LICENSE-text.html">LICENSE</a>
+</li>
 </ul>
 </div>
 
