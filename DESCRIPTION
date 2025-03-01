@@ -14,7 +14,7 @@ Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.3.2
 URL: https://gitspero.github.io/gitspero
-BugReports: https://github.com/utilisateur/R_advanced_project/issues
+BugReports: faladepero1@gmail.com
 VignetteBuilder: knitr
 Depends: 
     R (>= 4.0.0)
