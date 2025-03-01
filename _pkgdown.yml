@@ -8,7 +8,7 @@ navbar:
   components:
     github:
       icon: fab fa-github
-      href: https://github.com/utilisateur/R_advanced_project
+      href:https://github.com/fsisnio/gitspero
 reference:
   - title: "Functions"
     contents:
