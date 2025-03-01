@@ -5,7 +5,7 @@ Authors@R:
     person("Spero", "FALADE", email = "first.last@example.com", role = c("aut", "cre"))
 Description: Ce package permet de générer des résumés statistiques et des rapports détaillés 
     pour des données géographiques spécifiques, telles que les communes et les départements. 
-    Il offre des outils pour l'analyse des données régionales, y compris le calcul des distributions 
+    Il offre des outils pour l'analyse des données régionales, y compris le calcul des distributions
     des âges, le comptage des adjoints et élus, et la génération de graphiques et de rapports automatisés. 
     Ce projet facilite la prise de décision basée sur les données et est conçu pour être facilement utilisé 
     dans des analyses sur des données d'élus ou de communes.
