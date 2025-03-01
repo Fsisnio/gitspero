@@ -3,7 +3,7 @@ pkgdown: 2.1.1
 pkgdown_sha: ~
 articles:
   Generer_un_rapport_d_analyses: Generer_un_rapport_d_analyses.html
-last_built: 2025-03-01T21:01Z
+last_built: 2025-03-01T21:08Z
 urls:
   reference: https://gitspero.github.io/gitspero/reference
   article: https://gitspero.github.io/gitspero/articles
