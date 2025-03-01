@@ -13,8 +13,19 @@ generer_rapport <- function(commune, departement, output) {
   if (template_path == "") {
     stop("Le fichier modèle rapport.qmd est introuvable.")
   }
+  
+data_path <- system.file("data/elus-conseillers-municipaux-cm.csv", package = "gitspero")
+data_commune <- read.csv(data_path)
 
-  data_commune <- read.csv("C:/Users/DELL/Downloads/cours_r_semaine_3/data/elus-conseillers-municipaux-cm.csv")
+  # Filtrer les données pour la commune et le département donnés
+data_filtre <- subset(data_commune, 
+                      Libellé.de.la.commune == commune & 
+                      Libellé.du.département == departement)
+
+# Vérifier que des données existent
+if (nrow(data_filtre) == 0) {
+  stop("Aucune donnée trouvée pour cette commune et ce département.")
+}
 
   # Modifier le fichier avec les paramètres donnés
   params <- list(
